@@ -31,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* GRID BACKGROUND */
   body::before {
     content: '';
     position: fixed;
@@ -44,7 +43,6 @@
     z-index: 0;
   }
 
-  /* NOISE OVERLAY */
   body::after {
     content: '';
     position: fixed;
@@ -63,7 +61,6 @@
     z-index: 1;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -99,7 +96,6 @@
   }
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -194,8 +190,8 @@
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
+    gap: 12px;
+    padding: 12px 24px;
     font-family: 'Share Tech Mono', monospace;
     font-size: 13px;
     letter-spacing: 0.08em;
@@ -204,26 +200,30 @@
     transition: all 0.25s;
     cursor: pointer;
     border: none;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #080c12;
-    font-weight: 700;
-  }
-  .btn-primary:hover {
-    background: var(--accent2);
-    box-shadow: 0 0 30px rgba(0,212,255,0.4);
-    transform: translateY(-2px);
-  }
-  .btn-ghost {
-    background: transparent;
-    color: var(--accent);
+    background: var(--surface);
+    color: var(--text);
     border: 1px solid var(--border);
   }
-  .btn-ghost:hover {
+  .btn:hover {
     border-color: var(--accent);
     background: rgba(0,212,255,0.05);
     transform: translateY(-2px);
+    box-shadow: var(--glow);
+    color: var(--accent);
+  }
+
+  .btn-copy {
+    justify-content: space-between;
+    min-width: 280px;
+  }
+  .btn-copy svg {
+    width: 18px;
+    height: 18px;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .btn-copy:hover svg {
+    color: var(--accent);
   }
 
   .hero-stats {
@@ -248,19 +248,6 @@
     font-family: 'Share Tech Mono', monospace;
   }
 
-  /* RESPONSIVE ADJUSTMENTS */
-  @media (max-width: 600px) {
-    .container { padding: 0 16px; }
-    nav .inner { padding: 0 16px; }
-    .hero { padding-top: 60px; }
-    .hero-orb { display: none; }
-    .hero-name { font-size: clamp(36px, 10vw, 72px); }
-    .hero-bio { max-width: 100%; }
-    .hero-cta { flex-direction: column; align-items: flex-start; }
-    .hero-stats { flex-direction: column; gap: 24px; margin-top: 40px; padding-top: 24px; }
-  }
-
-  /* SECTIONS */
   section {
     padding: 100px 0;
     position: relative;
@@ -291,7 +278,6 @@
     background: var(--border);
   }
 
-  /* ABOUT */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -348,7 +334,6 @@
     font-size: 13px; color: var(--muted);
   }
 
-  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -390,24 +375,6 @@
   .tag-purple { background: rgba(180,100,255,0.1); color: #b464ff; border: 1px solid rgba(180,100,255,0.2); }
   .tag-muted { background: rgba(107,122,150,0.1); color: var(--muted); border: 1px solid rgba(107,122,150,0.2); }
 
-  .protocols-row {
-    margin-top: 24px;
-    padding: 20px 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .protocols-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    white-space: nowrap;
-  }
   .protocol-pill {
     padding: 4px 14px;
     background: rgba(0,212,255,0.06);
@@ -418,7 +385,6 @@
     color: var(--text);
   }
 
-  /* EXPERIENCE */
   .timeline { position: relative; }
   .timeline::before {
     content: '';
@@ -479,7 +445,6 @@
     top: 2px;
   }
 
-  /* PROJECTS */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -548,7 +513,20 @@
     transform: translate(4px, -4px);
   }
 
-  /* EDUCATION */
+  /* Status label for In Progress */
+  .status-label {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent3);
+    border: 1px solid var(--accent3);
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
   .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .edu-card {
     padding: 24px 28px;
@@ -588,62 +566,6 @@
     margin-top: 8px;
   }
 
-  /* CURRENTLY LEARNING */
-  .learning-card {
-    padding: 40px;
-    background: var(--surface);
-    border: 1px solid rgba(10,240,160,0.3);
-    border-radius: 4px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .learning-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-  }
-  .learning-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    color: var(--accent2);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .learning-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-  .learning-desc { color: #8fa0bc; font-size: 14px; line-height: 1.7; }
-  .learning-items { display: flex; flex-direction: column; gap: 12px; justify-content: center; }
-  .learning-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    background: rgba(10,240,160,0.05);
-    border: 1px solid rgba(10,240,160,0.15);
-    border-radius: 3px;
-    font-size: 13px;
-    font-family: 'Share Tech Mono', monospace;
-    color: var(--text);
-  }
-  .learning-item-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent2);
-    flex-shrink: 0;
-    animation: pulse 2s infinite;
-  }
-
-  /* CONNECT */
   .connect-section {
     text-align: center;
     padding: 100px 0;
@@ -677,29 +599,6 @@
     flex-wrap: wrap;
     margin-bottom: 64px;
   }
-  .connect-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    text-decoration: none;
-    color: var(--text);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    transition: all 0.25s;
-  }
-  .connect-link:hover {
-    border-color: var(--accent);
-    background: rgba(0,212,255,0.06);
-    transform: translateY(-3px);
-    box-shadow: var(--glow);
-    color: var(--accent);
-  }
-  .connect-link svg { width: 16px; height: 16px; }
 
   footer {
     text-align: center;
@@ -714,7 +613,6 @@
   }
   footer span { color: var(--accent); }
 
-  /* ANIMATIONS */
   .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -725,22 +623,22 @@
     transform: translateY(0);
   }
 
-  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
   @media (max-width: 768px) {
-    .about-grid, .skills-grid, .projects-grid, .edu-grid, .learning-card {
+    .about-grid, .skills-grid, .projects-grid, .edu-grid {
       grid-template-columns: 1fr;
     }
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .hero-stats { gap: 28px; }
     .nav-links { display: none; }
+    .hero-cta { flex-direction: column; align-items: stretch; }
+    .btn-copy { min-width: 0; width: 100%; }
   }
 
-  /* HERO PHOTO */
   .hero-inner {
     display: flex;
     align-items: center;
@@ -748,39 +646,14 @@
     gap: 48px;
   }
   .hero-content { flex: 1; min-width: 0; }
-  .hero-photo {
-    position: relative;
-    flex-shrink: 0;
-    width: 300px;
-    height: 300px;
-  }
   
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
   @media (max-width: 900px) {
-    .hero-inner {
-      flex-direction: column-reverse;
-      align-items: flex-start;
-    }
-    .hero-photo {
-      width: 180px;
-      height: 180px;
-      align-self: center;
-    }
-  }
-  @media (max-width: 600px) {
-    .hero-photo {
-      width: 140px;
-      height: 140px;
-    }
+    .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="inner">
     <div class="logo">ME<span>.</span>dev</div>
@@ -794,7 +667,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-orb orb1"></div>
   <div class="hero-orb orb2"></div>
@@ -807,32 +679,41 @@
           <span class="line2">Elbadrawy</span>
         </h1>
         <div class="hero-role">
-          <span>ARM</span> · AUTOSAR · Embedded Systems · <span>TinyML</span>
+          <span>ARM</span> · AUTOSAR · Embedded Systems · <span>IoT</span>
         </div>
         <p class="hero-bio">
           Building the <strong>nervous system of tomorrow's vehicles</strong> — one register at a time.
           M.Sc. Automotive Software Engineering at TU Chemnitz. Specializing in
           <strong>bare-metal drivers, RTOS,</strong> and automotive communication protocols.
-          Currently exploring <strong>Machine Learning</strong> for resource-constrained hardware.
+          Currently focusing on <strong>Internet of Things (IoT)</strong> for connected hardware ecosystems.
         </p>
         <div class="hero-cta">
-          <a href="mailto:emahmoud.elbadrawy@gmail.com" class="btn btn-primary">
-            ✉ Get In Touch
+          <button class="btn btn-copy" onclick="copyEmail()" id="email-btn" title="Click to copy email">
+            <span id="email-text">emahmoud.elbadrawy@gmail.com</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+          
+          <a href="https://github.com/mahmoud-elbadrawy" target="_blank" class="btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
           </a>
-          <a href="https://github.com/mahmoud-elbadrawy" target="_blank" class="btn btn-ghost">
-            ⌥ GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="btn btn-ghost">
-            ↗ LinkedIn
+          
+          <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
           </a>
         </div>
+        
         <div class="hero-stats">
           <div>
             <div class="stat-num">3+</div>
             <div class="stat-label">Years in Embedded</div>
           </div>
           <div>
-            <div class="stat-num">6+</div>
+            <div class="stat-num">7+</div>
             <div class="stat-label">Projects Built</div>
           </div>
           <div>
@@ -849,7 +730,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="section-header fade-in">
@@ -869,11 +749,10 @@
           where every byte of RAM matters and every CPU cycle counts.
         </p>
         <p>
-          Beyond the automotive domain, I document everything I learn — I have dedicated repos 
-          for <strong>VHDL</strong> and <strong>C++</strong> where I write lessons and examples 
-          as I study. Now I'm turning my eye toward <strong>Machine Learning</strong>, 
-          with a particular fascination for <strong>TinyML</strong>: bringing intelligence 
-          to the smallest possible devices.
+          Beyond the automotive domain, I document everything I learn — I maintain dedicated repositories 
+          for <strong>VHDL</strong>, <strong>C++</strong>, and <strong>TCL</strong> where I write lessons, 
+          introductory notes, and automation scripts. My current focus is shifting towards the 
+          <strong>Internet of Things (IoT)</strong>, bridging the gap between embedded hardware and connected ecosystems.
         </p>
         <em>"I don't just write code — I build the nervous system of the vehicles of tomorrow."</em>
       </div>
@@ -897,8 +776,8 @@
           <div class="info-card-label">// Languages</div>
           <div class="lang-flags">
             <div class="lang-flag">🇪🇬 Arabic <span style="color:var(--accent);margin-left:4px;font-size:11px;">Native</span></div>
-            <div class="lang-flag">🇬🇧 English <span style="color:var(--accent);margin-left:4px;font-size:11px;">B2</span></div>
-            <div class="lang-flag">🇩🇪 German <span style="color:var(--accent);margin-left:4px;font-size:11px;">A2</span></div>
+            <div class="lang-flag">🇬🇧 English <span style="color:var(--accent);margin-left:4px;font-size:11px;">C1</span></div>
+            <div class="lang-flag">🇩🇪 German <span style="color:var(--accent);margin-left:4px;font-size:11px;">A2 (Improving)</span></div>
           </div>
         </div>
       </div>
@@ -906,7 +785,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <div class="section-header fade-in">
@@ -922,8 +800,8 @@
           <span class="skill-tag tag-blue">C++</span>
           <span class="skill-tag tag-green">Python</span>
           <span class="skill-tag tag-orange">VHDL</span>
-          <span class="skill-tag tag-muted">XML</span>
           <span class="skill-tag tag-muted">Tcl</span>
+          <span class="skill-tag tag-muted">XML</span>
         </div>
       </div>
       <div class="skill-group">
@@ -937,18 +815,41 @@
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">// ML & Data (Learning)</div>
+        <div class="skill-group-title">// Version Control & Management</div>
         <div class="skill-tags">
-          <span class="skill-tag tag-green">TinyML</span>
-          <span class="skill-tag tag-orange">TensorFlow Lite</span>
-          <span class="skill-tag tag-blue">NumPy</span>
-          <span class="skill-tag tag-blue">Pandas</span>
-          <span class="skill-tag tag-muted">Matplotlib</span>
-          <span class="skill-tag tag-muted">Streamlit</span>
+          <span class="skill-tag tag-green">Git</span>
+          <span class="skill-tag tag-green">GitHub</span>
+          <span class="skill-tag tag-green">GitLab</span>
+          <span class="skill-tag tag-orange">Jira</span>
         </div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">// Tools & IDEs</div>
+	  <div class="skill-group" style="grid-column: span 3;">
+	    <div class="skill-group-title">// Protocols</div>
+	    <div class="skill-tags">
+	      <span class="protocol-pill">SPI</span>
+	      <span class="protocol-pill">I2C</span>
+	      <span class="protocol-pill">UART</span>
+	      <span class="protocol-pill">CAN</span>
+	      <span class="protocol-pill">LIN</span>
+	      <span class="protocol-pill">FlexRay</span>
+	      <span class="protocol-pill">Ethernet</span>
+	      <span class="protocol-pill">MQTT</span>
+	    </div>
+	  </div>
+      
+      <div class="skill-group" style="grid-column: span 3;">
+        <div class="skill-group-title">// Currently Learning & Documenting</div>
+        <div class="skill-tags">
+          <span class="skill-tag tag-green">Internet of Things (IoT)</span>
+          <span class="skill-tag tag-blue">VHDL (documented repo)</span>
+          <span class="skill-tag tag-blue">C++ (documented repo)</span>
+          <span class="skill-tag tag-orange">TCL Scripting (documented repo)</span>
+          <span class="skill-tag tag-purple">Advanced AUTOSAR</span>
+          <span class="skill-tag tag-muted">ARM Cortex-M Optimization</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column: span 3;">
+        <div class="skill-group-title">// IDEs & Tools</div>
         <div class="skill-tags">
           <span class="skill-tag tag-blue">VS Code</span>
           <span class="skill-tag tag-purple">Eclipse</span>
@@ -957,32 +858,11 @@
           <span class="skill-tag tag-green">Jupyter</span>
         </div>
       </div>
-      <div class="skill-group" style="grid-column: span 2;">
-        <div class="skill-group-title">// Currently Learning & Documenting</div>
-        <div class="skill-tags">
-          <span class="skill-tag tag-green">Machine Learning Fundamentals</span>
-          <span class="skill-tag tag-orange">TinyML on MCUs</span>
-          <span class="skill-tag tag-blue">VHDL (documented repo)</span>
-          <span class="skill-tag tag-blue">C++ (documented repo)</span>
-          <span class="skill-tag tag-purple">Advanced AUTOSAR</span>
-          <span class="skill-tag tag-muted">ARM Cortex-M Optimization</span>
-        </div>
-      </div>
-    </div>
-    <div class="protocols-row fade-in">
-      <span class="protocols-label">// Protocols</span>
-      <span class="protocol-pill">SPI</span>
-      <span class="protocol-pill">I2C</span>
-      <span class="protocol-pill">UART</span>
-      <span class="protocol-pill">CAN</span>
-      <span class="protocol-pill">LIN</span>
-      <span class="protocol-pill">FlexRay</span>
-      <span class="protocol-pill">Ethernet</span>
-    </div>
+	  
+	</div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="section-header fade-in">
@@ -1005,7 +885,7 @@
       <div class="timeline-item">
         <div class="timeline-date">PREVIOUSLY</div>
         <div class="timeline-role">Werkstudent Software Developer</div>
-        <div class="timeline-company">CELERITAS-8 GmbH · Germany</div>
+        <div class="timeline-company">CELERITAS-8 GmbH · Leipzig, Germany</div>
         <ul class="timeline-points">
           <li>Digitalized accounting processes through Odoo-based solutions</li>
           <li>Implemented Customer Portal with dashboard and KPI visualization</li>
@@ -1016,7 +896,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <div class="section-header fade-in">
@@ -1028,48 +907,37 @@
       <a class="project-card" href="https://github.com/mahmoud-elbadrawy/VHDL" target="_blank">
         <div class="project-arrow">↗</div>
         <div class="project-icon">⚡</div>
-        <div class="project-name">VHDL Lessons & Concepts</div>
-        <div class="project-desc">A structured learning repository documenting VHDL concepts with examples and exercises — built hands-on while studying digital design and hardware description language.</div>
+        <div class="project-name">VHDL Lessons & Concepts <span class="status-label">In Progress</span></div>
+        <div class="project-desc">A structured learning repository documenting VHDL concepts with examples and exercises — built hands-on while studying digital design.</div>
         <div class="project-chips">
           <span class="chip tag-orange">VHDL</span>
           <span class="chip tag-muted">Digital Design</span>
-          <span class="chip tag-purple">Educational</span>
+          <span class="chip tag-blue">Educational</span>
         </div>
       </a>
       <a class="project-card" href="https://github.com/mahmoud-elbadrawy/C-plus-plus" target="_blank">
         <div class="project-arrow">↗</div>
         <div class="project-icon">🔷</div>
-        <div class="project-name">C++ Lessons & Concepts</div>
-        <div class="project-desc">Step-by-step C++ lessons, patterns, and code examples created while studying the language — a living reference repo updated as understanding deepens.</div>
+        <div class="project-name">C++ Lessons & Concepts <span class="status-label">In Progress</span></div>
+        <div class="project-desc">Step-by-step C++ lessons, patterns, and code examples created while studying the language — a living reference repo.</div>
         <div class="project-chips">
           <span class="chip tag-blue">C++</span>
           <span class="chip tag-muted">OOP</span>
-          <span class="chip tag-purple">Educational</span>
+          <span class="chip tag-purple">Software Design</span>
         </div>
       </a>
-      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank">
+      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank">
         <div class="project-arrow">↗</div>
-        <div class="project-icon">🅿️</div>
-        <div class="project-name">Smart Parking System</div>
-        <div class="project-desc">Intelligent automated parking system with real-time availability detection, access control, and embedded sensor integration for seamless vehicle management.</div>
+        <div class="project-icon">📜</div>
+        <div class="project-name">TCL Scripting & Notes</div>
+        <div class="project-desc">Comprehensive notes and introductory scripts for TCL, covering the essentials needed for automation and tool configuration.</div>
         <div class="project-chips">
-          <span class="chip tag-blue">C</span>
-          <span class="chip tag-green">Embedded</span>
-          <span class="chip tag-muted">Sensors</span>
+          <span class="chip tag-muted">Tcl/Tk</span>
+          <span class="chip tag-purple">Automation</span>
+          <span class="chip tag-blue">Scripting</span>
         </div>
       </a>
-      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank">
-        <div class="project-arrow">↗</div>
-        <div class="project-icon">🏠</div>
-        <div class="project-name">Smart Home System</div>
-        <div class="project-desc">Integrated home automation for security and energy efficiency using Atmega32 microcontroller. Features sensor-driven logic for real-world control and monitoring.</div>
-        <div class="project-chips">
-          <span class="chip tag-orange">AVR</span>
-          <span class="chip tag-blue">Atmega32</span>
-          <span class="chip tag-green">Automation</span>
-        </div>
-      </a>
-      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/tips_dashboard" target="_blank">
+	  <a class="project-card" href="https://github.com/mahmoud-elbadrawy/tips_dashboard" target="_blank">
         <div class="project-arrow">↗</div>
         <div class="project-icon">📊</div>
         <div class="project-name">Tips Dashboard</div>
@@ -1080,55 +948,46 @@
           <span class="chip tag-blue">Data Viz</span>
         </div>
       </a>
-      <a class="project-card" href="https://github.com/mahmoud-elbadrawy?tab=repositories" target="_blank" style="border-style: dashed;">
+      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank">
         <div class="project-arrow">↗</div>
-        <div class="project-icon">🤖</div>
-        <div class="project-name">TinyML Project <span style="font-size:12px;color:var(--accent2);font-family:'Share Tech Mono',monospace;">[coming soon]</span></div>
-        <div class="project-desc">Bringing machine learning to microcontrollers. Currently learning the fundamentals — a TinyML project on embedded hardware is in the works.</div>
+        <div class="project-icon">🅿️</div>
+        <div class="project-name">Smart Parking System</div>
+        <div class="project-desc">Intelligent automated parking system with real-time availability detection, access control, and embedded sensor integration.</div>
         <div class="project-chips">
-          <span class="chip tag-green">TinyML</span>
-          <span class="chip tag-orange">TF Lite</span>
-          <span class="chip tag-blue">MCU</span>
+          <span class="chip tag-blue">C</span>
+          <span class="chip tag-green">Embedded Systems</span>
+          <span class="chip tag-muted">ATmega32</span>
         </div>
       </a>
+      <a class="project-card" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank">
+        <div class="project-arrow">↗</div>
+        <div class="project-icon">🏠</div>
+        <div class="project-name">Smart Home System</div>
+        <div class="project-desc">Integrated home automation for security and energy efficiency using Atmega32 microcontroller.</div>
+        <div class="project-chips">
+          <span class="chip tag-orange">AVR</span>
+          <span class="chip tag-blue">ATmega32</span>
+          <span class="chip tag-green">Automation</span>
+        </div>
+      </a>
+      <div class="project-card" style="border-style: dashed;">
+        <div class="project-icon">🌐</div>
+        <div class="project-name">IoT Project <span style="font-size:12px;color:var(--accent2);font-family:'Share Tech Mono',monospace;">[coming soon]</span></div>
+        <div class="project-desc">Bridging embedded devices with cloud ecosystems. Currently architecting a project focused on sensor telemetry and remote control.</div>
+        <div class="project-chips">
+          <span class="chip tag-green">IoT</span>
+          <span class="chip tag-orange">MQTT</span>
+          <span class="chip tag-blue">Cloud Connectivity</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CURRENTLY LEARNING -->
 <section>
   <div class="container">
     <div class="section-header fade-in">
       <span class="section-num">05</span>
-      <h2 class="section-title">Currently Learning</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="learning-card fade-in">
-      <div>
-        <div class="learning-label">// Active Focus</div>
-        <div class="learning-title">Machine Learning & TinyML</div>
-        <div class="learning-desc">
-          Fascinated by the idea of deploying intelligence directly onto microcontrollers — 
-          no cloud, no powerful GPU, just a tiny chip making smart decisions in real time. 
-          TinyML sits perfectly at the intersection of my embedded expertise and the ML world 
-          I'm stepping into. The future of automotive and IoT lives here.
-        </div>
-      </div>
-      <div class="learning-items">
-        <div class="learning-item"><div class="learning-item-dot"></div>ML Fundamentals & Math</div>
-        <div class="learning-item"><div class="learning-item-dot"></div>TensorFlow Lite for Microcontrollers</div>
-        <div class="learning-item"><div class="learning-item-dot"></div>Model Quantization & Optimization</div>
-        <div class="learning-item"><div class="learning-item-dot"></div>Edge Inference on ARM Cortex-M</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section>
-  <div class="container">
-    <div class="section-header fade-in">
-      <span class="section-num">06</span>
       <h2 class="section-title">Education</h2>
       <div class="section-line"></div>
     </div>
@@ -1173,26 +1032,22 @@
   </div>
 </section>
 
-<!-- CONNECT -->
 <section id="connect" class="connect-section">
   <div class="container">
     <div class="fade-in">
       <h2 class="connect-title">Let's <span>Connect</span></h2>
       <p class="connect-sub">
-        Open to collaborations, interesting conversations, and new opportunities — 
-        especially around embedded systems, automotive software, and TinyML.
+        Open to collaborations and new opportunities — 
+        especially around embedded systems, automotive software, and IoT.
       </p>
+      
       <div class="connect-links">
-        <a href="mailto:emahmoud.elbadrawy@gmail.com" class="connect-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          emahmoud.elbadrawy@gmail.com
-        </a>
-        <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="connect-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
-        <a href="https://github.com/mahmoud-elbadrawy" target="_blank" class="connect-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/mahmoud-elbadrawy" target="_blank" class="btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
       </div>
@@ -1219,6 +1074,26 @@
   document.querySelectorAll('.projects-grid .project-card, .edu-grid .edu-card, .skills-grid .skill-group').forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 80}ms`;
   });
+
+  // Copy Email Function
+  function copyEmail() {
+    const email = "emahmoud.elbadrawy@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      const btn = document.getElementById('email-btn');
+      const text = document.getElementById('email-text');
+      const originalText = text.innerText;
+      
+      text.innerText = "Email Copied!";
+      btn.style.borderColor = "var(--accent2)";
+      btn.style.color = "var(--accent2)";
+      
+      setTimeout(() => {
+        text.innerText = originalText;
+        btn.style.borderColor = "";
+        btn.style.color = "";
+      }, 2000);
+    });
+  }
 </script>
 </body>
 </html>
