@@ -209,7 +209,7 @@ section { padding: 100px 0; position: relative; z-index: 1; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 70px;
 }
 .hero-inner {
   width: 100%;
@@ -330,7 +330,7 @@ section { padding: 100px 0; position: relative; z-index: 1; }
   gap: 10px;
   padding: 12px 20px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.06em;
   color: var(--text-muted);
   background: var(--surface);
@@ -338,7 +338,7 @@ section { padding: 100px 0; position: relative; z-index: 1; }
   border-radius: var(--radius);
   cursor: pointer;
   transition: all 0.22s;
-  min-width: 290px;
+  min-width: 230px;
   justify-content: space-between;
 }
 .btn-copy:hover {
@@ -921,11 +921,10 @@ footer span { color: var(--green); }
           Engineering the <strong>nervous system of tomorrow's vehicles</strong> — one register at a time.
           M.Sc. Automotive Software Engineering at <strong>TU Chemnitz</strong>, specializing in
           <strong>bare-metal drivers, microcontroller architecture,</strong> and automotive communication protocols.
-          Currently working on IoT and connected embedded systems.
         </p>
         <div class="hero-cta">
           <button class="btn-copy" onclick="copyEmail()" id="email-btn" title="Click to copy email">
-            <span id="email-text">mahmoudelbadrawy@outlook.com</span>
+            <span id="email-text">mahmoud@elbadrawy.de</span>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           </button>
           <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="btn-primary">
@@ -1053,7 +1052,6 @@ footer span { color: var(--green); }
       <div class="about-text">
         <p>I'm a dedicated <strong>Embedded Software Engineer</strong> working as a Werkstudent at <strong>Infineon Technologies AG</strong>, where I develop and extend the <strong>Peripheral Driver Library (PDL)</strong> for modern microcontrollers and contribute to the Device Configurator tooling.</p>
         <p>Pursuing my Master's degree in <strong>Automotive Software Engineering at TU Chemnitz</strong>, I operate at the intersection of hardware constraints and software architecture — where every byte of RAM matters and every CPU cycle counts.</p>
-        <p>My foundation spans <strong>AVR and ARM Cortex-M microcontrollers</strong>, automotive communication protocols (CAN, LIN, FlexRay, Ethernet), and software toolchains for embedded development. Currently expanding into <strong>IoT and connected embedded ecosystems</strong>, bridging sensor hardware with cloud platforms.</p>
         <div class="quote-block">
           "I don't just write code — I build the nervous system of the vehicles of tomorrow."
         </div>
@@ -1072,7 +1070,7 @@ footer span { color: var(--green); }
         <div class="info-card">
           <div class="ic-label">// location</div>
           <div class="ic-value">Chemnitz, Germany 🇩🇪</div>
-          <div class="ic-sub">Originally from Egypt 🇪🇬 · Open to relocation</div>
+          <div class="ic-sub">Open to relocation</div>
         </div>
         <div class="info-card">
           <div class="ic-label">// languages</div>
@@ -1108,13 +1106,13 @@ footer span { color: var(--green); }
         </div>
       </div>
       <div class="skill-card">
-        <div class="skill-card-title">// Embedded &amp; Automotive</div>
+        <div class="skill-card-title">// Embedded</div>
         <div class="tags">
           <span class="tag tag-g">ARM Cortex-M</span>
           <span class="tag tag-g">Bare Metal</span>
           <span class="tag tag-a">AVR / ATmega32</span>
-          <span class="tag tag-b">AUTOSAR</span>
-          <span class="tag tag-d">PDL</span>
+          <span class="tag tag-b">CMake</span>
+          <span class="tag tag-d">Docker</span>
         </div>
       </div>
       <div class="skill-card">
@@ -1150,16 +1148,6 @@ footer span { color: var(--green); }
           <span class="tag tag-b">Streamlit</span>
           <span class="tag tag-d">Jupyter</span>
           <span class="tag tag-d">PyCharm</span>
-        </div>
-      </div>
-      <div class="skill-card wide">
-        <div class="skill-card-title">// Currently Learning</div>
-        <div class="tags">
-          <span class="tag tag-g">IoT Architectures</span>
-          <span class="tag tag-g">Cloud Connectivity (MQTT / REST)</span>
-          <span class="tag tag-a">Advanced AUTOSAR</span>
-          <span class="tag tag-b">ARM Cortex-M Optimization</span>
-          <span class="tag tag-d">RTOS</span>
         </div>
       </div>
     </div>
@@ -1223,7 +1211,25 @@ footer span { color: var(--green); }
       <div class="section-line"></div>
     </div>
     <div class="projects-grid fade-in">
-
+      <!-- Embedded DevOps Coming Soon -->
+      <div class="project-card dashed">
+        <div class="project-top">
+          <div class="project-icon">🛠️</div>
+        </div>
+        <div class="project-name">
+          Containerized Embedded C Pipeline & CI/CD Demo
+          <span class="project-soon">COMING SOON</span>
+        </div>
+        <div class="project-desc">Developing a modular C-based embedded monitoring system using CMake and the Unity test framework. Integrated Docker toolchain and VS Code task automation, backed by a GitHub Actions CI pipeline for automated build and unit test execution on every commit.</div>
+        <div class="project-chips">
+          <span class="chip tag-g">C / C++</span>
+          <span class="chip tag-g">CMake</span>
+          <span class="chip tag-g">Docker</span>
+          <span class="chip tag-b">GitHub Actions</span>
+          <span class="chip tag-d">VS Code</span>
+        </div>
+      </div>
+      
       <a class="project-card" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank">
         <div class="project-top">
           <div class="project-icon">🅿️</div>
@@ -1296,26 +1302,6 @@ footer span { color: var(--green); }
           <span class="chip tag-d">Scripting</span>
         </div>
       </a>
-
-      <!-- IoT Coming Soon -->
-      <div class="project-card dashed">
-        <div class="project-top">
-          <div class="project-icon">🔌</div>
-        </div>
-        <div class="project-name">
-          Smart IoT Energy Monitoring System
-          <span class="project-soon">COMING SOON</span>
-        </div>
-        <div class="project-desc">A full-stack IoT solution for real-time energy consumption monitoring. Embedded sensor nodes collect power data and transmit via MQTT to a cloud backend with live dashboard visualization.</div>
-        <div class="project-chips">
-          <span class="chip tag-g">C / C++</span>
-          <span class="chip tag-g">IoT</span>
-          <span class="chip tag-g">MQTT</span>
-          <span class="chip tag-b">Cloud Connectivity</span>
-          <span class="chip tag-d">Energy Monitoring</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1333,7 +1319,7 @@ footer span { color: var(--green); }
         <span class="edu-badge edu-degree">M.Sc. Degree</span>
         <div class="edu-title">Automotive Software Engineering</div>
         <div class="edu-school">TU Chemnitz, Germany</div>
-        <div class="edu-year">Oct 2024 → Mar 2027 (expected)</div>
+        <div class="edu-year">Oct 2024 → Mar 2028 (expected)</div>
       </div>
       <div class="edu-card">
         <span class="edu-badge edu-degree">B.Sc. Degree</span>
@@ -1382,8 +1368,8 @@ footer span { color: var(--green); }
         Feel free to reach out via email or LinkedIn.
       </p>
       <div class="connect-links">
-        <button class="btn-copy" onclick="copyEmail()" id="email-btn2" title="Click to copy email" style="min-width:300px;">
-          <span id="email-text2">mahmoudelbadrawy@outlook.com</span>
+        <button class="btn-copy" onclick="copyEmail()" id="email-btn2" title="Click to copy email" style="min-width:230px;">
+          <span id="email-text2">mahmoud@elbadrawy.de</span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
         <a href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" class="btn-primary">
@@ -1394,7 +1380,7 @@ footer span { color: var(--green); }
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
-        <a href="https://mahmoud-elbadrawy.github.io" target="_blank" class="btn-outline">
+        <a href="https://elbadrawy.de" target="_blank" class="btn-outline">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           Website
         </a>
