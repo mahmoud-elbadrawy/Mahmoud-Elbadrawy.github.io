@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahmoud Elbadrawy | Embedded Software Engineer</title>
+<meta name="description" content="Portfolio of Mahmoud Elbadrawy, embedded software engineer (working student at Infineon). ARM drivers, BSPs, unit testing and CI/CD.">
+<meta property="og:title" content="Mahmoud Elbadrawy | Embedded Software Engineer">
+<meta property="og:description" content="ARM drivers, BSPs, unit testing and CI/CD. Working student at Infineon, based in Chemnitz.">
+<meta property="og:image" content="https://elbadrawy.de/myPic.JPG">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b2b2a;--mut:#5b7673;--teal:#0f9b8e;--teal2:#0b6e66;--mint:#e8f7f4;--line:#d6ece8;--amber:#f5a524;--blue:#3b82f6;--sh:0 14px 34px -14px rgba(11,110,102,.28);--sh2:0 24px 50px -18px rgba(11,110,102,.38)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Outfit,system-ui,sans-serif;color:var(--ink);background:#f6fcfb;line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 500px at 85% -5%,#d3f3ee 0,transparent 60%),radial-gradient(700px 500px at -5% 35%,#e3f7f2 0,transparent 60%)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic.f{fill:currentColor;stroke:none}
+.mono{font-family:"Space Mono",monospace}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),#5eead4);z-index:99}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(246,252,251,.78);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+nav.sc{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(11,110,102,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+.logo i{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:grid;place-items:center;color:#fff;font-style:normal;font-size:.85rem;letter-spacing:.5px;box-shadow:var(--sh)}
+.logo small{display:block;font-weight:400;font-size:.68rem;color:var(--mut);margin-top:-4px}
+.links{display:flex;gap:4px}
+.links a{padding:8px 14px;border-radius:999px;font-weight:500;font-size:.93rem;color:var(--mut);transition:.2s}
+.links a:hover{color:var(--teal2);background:var(--mint)}
+.links a.on{background:var(--teal);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:14px;font-weight:600;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:.25s}
+.btn.p{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;box-shadow:0 12px 24px -10px rgba(11,110,102,.6)}
+.btn.p:hover{transform:translateY(-3px);box-shadow:0 18px 30px -10px rgba(11,110,102,.65)}
+.btn.o{background:#fff;border-color:var(--line);color:var(--teal2)}
+.btn.o:hover{border-color:var(--teal);transform:translateY(-3px)}
+.burger{display:none;background:none;border:0;cursor:pointer;color:var(--ink)}
+
+/* hero */
+.hero{position:relative;padding:54px 0 70px}
+.hero{overflow:hidden}.hero .ecg{position:absolute;left:0;width:100%;bottom:10px;height:90px;opacity:.55;z-index:-1}
+.ecg path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 5s ease-out forwards}
+.hero-g{display:grid;grid-template-columns:1.02fr 1fr;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 12px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:500;color:var(--teal2);box-shadow:var(--sh)}
+.dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 2s infinite}
+h1{font-size:clamp(3rem,7vw,5.6rem);line-height:.98;font-weight:900;letter-spacing:-.03em;margin:16px 0 14px;background:linear-gradient(120deg,#0a5d57 10%,#14b8a6 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:700;line-height:1.25}
+.typed{color:var(--teal);border-right:3px solid var(--teal);padding-right:4px;animation:blink 1s step-end infinite}
+.avatar{width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:50% 4%;margin-top:22px;border:3px solid var(--teal);box-shadow:0 0 0 6px rgba(20,184,166,.16),0 14px 34px -8px rgba(15,155,142,.55);animation:glow 3.5s ease-in-out infinite}
+.lead{margin:16px 0 26px;color:var(--mut);font-size:1.07rem;max-width:520px}
+.lead b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:520px}
+.feat div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 8px;text-align:center;font-size:.8rem;font-weight:600;color:var(--teal2);transition:.3s}
+.feat div:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--teal)}
+.feat .ic{width:26px;height:26px;display:block;margin:0 auto 6px;color:var(--teal)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{padding:6px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:.8rem;font-weight:500;color:var(--mut)}
+
+/* hero stage */
+.stage{position:relative;height:610px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--sh2)}
+.dash{position:absolute;right:0;top:70px;width:92%;padding:18px;animation:float 7s ease-in-out -2s infinite}
+.dh{display:flex;align-items:center;gap:6px;margin-bottom:12px}
+.dh i{width:9px;height:9px;border-radius:50%;background:#e2e8f0}.dh i:first-child{background:#fca5a5}.dh i:nth-child(2){background:#fcd34d}.dh i:nth-child(3){background:#86efac}
+.dh b{margin-left:10px;font-size:.88rem}
+.drv{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.drv span{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--mint);color:var(--teal2);display:flex;gap:6px;align-items:center}
+.drv span:before{content:"";width:6px;height:6px;border-radius:50%;background:#22c55e}
+.wave{background:linear-gradient(180deg,#f0fbf9,#fff);border:1px solid var(--line);border-radius:14px;padding:8px 10px;overflow:hidden}
+.wave em{font-style:normal;font-size:.68rem;color:var(--mut);display:flex;justify-content:space-between}
+.wave svg{width:200%;height:54px;display:block;animation:scroll 5s linear infinite}
+.ci{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:.78rem;font-weight:600}
+.ci span{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:10px;background:#ecfdf5;color:#047857}
+.ci .ic{width:14px;height:14px}
+.ci hr{flex:1;border:0;border-top:2px dashed var(--line)}
+.me{position:absolute;left:4%;top:0;width:42%;padding:10px;animation:float 8s ease-in-out -3s infinite;z-index:2}
+.xme img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:50% 12%;border-radius:16px}
+.me div{padding:10px 4px 4px;font-weight:700;line-height:1.25;font-size:.95rem}
+.me small{display:flex;gap:4px;align-items:center;font-weight:400;color:var(--mut);font-size:.78rem}
+.me .ic{width:13px;height:13px}
+.fl{position:absolute;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:10px 14px;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:8px;animation:float 6s ease-in-out infinite}
+.fl .ic{color:var(--teal)}
+.fl.c{left:0;top:20px;animation-delay:-1s;z-index:3}
+.fl.d{right:6px;top:330px;animation-delay:-3s}
+
+/* sections */
+section{padding:84px 0}
+.tag{display:inline-block;font-family:"Space Mono",monospace;font-size:.8rem;color:var(--teal);background:var(--mint);padding:5px 14px;border-radius:999px;margin-bottom:12px}
+h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+h2 span{color:var(--teal)}
+.sub{color:var(--mut);max-width:560px;margin-bottom:40px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* about */
+.ab{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.ph{position:relative;max-width:440px;width:100%}
+.ph .frame{border-radius:28px;overflow:hidden;box-shadow:0 24px 50px -22px rgba(11,43,42,.45);animation:breathe 7s ease-in-out infinite}
+.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;display:block;animation:kb 18s ease-in-out infinite alternate}
+.quote{border-left:4px solid var(--teal);padding:4px 0 4px 18px;margin:20px 0;font-style:italic;font-weight:500}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.info div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;transition:.3s}
+.info div:hover{transform:translateY(-5px);box-shadow:var(--sh)}
+.info small{font-family:"Space Mono",monospace;color:var(--teal);font-size:.72rem;display:flex;gap:6px;align-items:center}
+.info small .ic{width:15px;height:15px}
+.info b{display:block;font-size:.98rem;margin-top:4px;line-height:1.3}
+.info span{font-size:.84rem;color:var(--mut)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.stat{background:linear-gradient(145deg,#fff,var(--mint));border:1px solid var(--line);border-radius:22px;padding:22px;text-align:center}
+.stat b{font-size:2.6rem;font-weight:800;color:var(--teal2);display:block;line-height:1}
+.stat span{font-size:.85rem;color:var(--mut)}
+
+/* stack */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sk{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;transition:.35s}
+.sk:hover{transform:translateY(-8px);box-shadow:var(--sh2);border-color:var(--teal)}
+.sk .ico{width:48px;height:48px;border-radius:15px;background:var(--mint);color:var(--teal);display:grid;place-items:center;margin-bottom:14px;transition:.3s}
+.sk:hover .ico{background:var(--teal);color:#fff;transform:rotate(-8deg) scale(1.08)}
+.sk h3{font-size:1.1rem;margin-bottom:12px}
+.sk div.t{display:flex;flex-wrap:wrap;gap:7px}
+.sk div.t span{font-size:.8rem;font-weight:500;padding:5px 12px;border-radius:10px;background:#f3faf9;border:1px solid var(--line);transition:.2s}
+.sk div.t span:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+/* experience */
+.tl{position:relative;display:grid;gap:26px;padding-left:34px}
+.tl:before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(var(--teal),#a7ece3)}
+.job{position:relative;display:grid;grid-template-columns:96px 1fr;gap:22px;padding:26px}
+.job:before{content:"";position:absolute;left:-31px;top:34px;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid var(--teal)}
+.job .logo2{width:96px;height:96px;border-radius:24px;display:grid;place-items:center;font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:1px;position:relative;overflow:hidden}
+.job .logo2.i{background:linear-gradient(135deg,#0b6e66,#14b8a6)}.job .logo2.c{background:linear-gradient(135deg,#1d4ed8,#60a5fa)}
+.job .logo2:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);animation:shine 4s infinite}
+.job small{font-family:"Space Mono",monospace;color:var(--teal);font-size:.78rem}
+.job h3{font-size:1.25rem;margin:2px 0}
+.job p.o{color:var(--mut);font-size:.92rem;margin-bottom:10px}
+.job ul{list-style:none;display:grid;gap:7px}
+.job li{display:flex;gap:10px;font-size:.93rem;color:#2c4a48}
+.job li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:2px;background:var(--teal);transform:rotate(45deg)}
+.badge{float:right;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:999px;background:#dcfce7;color:#15803d}
+.badge.g{background:#e2e8f0;color:#475569}
+
+/* projects */
+.flt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.flt button{font-family:inherit;font-weight:600;font-size:.88rem;padding:9px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;transition:.25s}
+.flt button.on,.flt button:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pj{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .3s,opacity .4s;transform-style:preserve-3d}
+.pj:hover{box-shadow:var(--sh2)}
+.pj.hide{display:none}
+.art{background:#e5f8f4;border-bottom:1px solid var(--line);overflow:hidden;aspect-ratio:16/9}
+.art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.pj:hover .art img{transform:scale(1.07)}
+.pb{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pb h3{font-size:1.15rem;line-height:1.25;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.pb h3 em{font-style:normal;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:999px;background:#fef3c7;color:#b45309;white-space:nowrap}
+.pb p{color:var(--mut);font-size:.9rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:8px;background:var(--mint);color:var(--teal2)}
+.go{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.88rem;color:var(--teal);margin-top:4px}
+.go .ic{width:16px;height:16px;transition:.25s}.go:hover .ic{transform:translate(4px,-4px)}
+/* project art animations */
+.n{fill:#fff;stroke:var(--teal);stroke-width:2}
+.ln{stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1s linear infinite;fill:none}
+.ck{fill:var(--teal);transform-box:fill-box;transform-origin:center;animation:pop 4s ease-in-out infinite;animation-delay:var(--d)}
+.tx{font:600 10px Outfit,sans-serif;fill:#0b6e66;text-anchor:middle}
+.car{animation:park 5s ease-in-out infinite}
+.gate{transform-origin:236px 62px;animation:gate 5s ease-in-out infinite}
+.rg{fill:none;stroke:var(--teal);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 3s ease-out infinite;animation-delay:var(--d)}
+.bar{fill:var(--teal);transform-box:fill-box;transform-origin:bottom;animation:grow 4s ease-in-out infinite;animation-delay:var(--d)}
+.sig{fill:none;stroke:var(--teal);stroke-width:2.5;stroke-dasharray:400;animation:sig 5s linear infinite;animation-delay:var(--d)}
+.cur{animation:blink 1s step-end infinite}
+.tm{fill:#0f2a29}.tl2{fill:#5eead4;font:11px "Space Mono",monospace}
+
+/* education */
+.eg{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ed{padding:24px;display:flex;gap:18px;align-items:flex-start;transition:.3s}
+.ed:hover{transform:translateY(-6px)}
+.ed .ico{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;display:grid;place-items:center;flex:none}
+.ed small{font-family:"Space Mono",monospace;font-size:.74rem;color:var(--teal)}
+.ed h3{font-size:1.08rem;line-height:1.3;margin:2px 0}
+.ed p{color:var(--mut);font-size:.9rem}
+.ed .z{display:inline-flex;gap:6px;align-items:center;margin-top:8px;font-size:.76rem;font-weight:600;padding:4px 12px;border-radius:999px;background:#ecfdf5;color:#047857}
+.cert{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.cert div{background:#fff;border:1px dashed #9edbd3;border-radius:18px;padding:16px;font-size:.86rem;transition:.3s}
+.cert div:hover{border-style:solid;background:var(--mint);transform:translateY(-4px)}
+.cert .ic{color:var(--amber);margin-bottom:6px}
+.cert b{display:block;line-height:1.3}.cert span{color:var(--mut);font-size:.78rem}
+
+/* connect */
+.cn{position:relative;overflow:hidden;border-radius:36px;padding:64px 48px;text-align:center;color:#fff;box-shadow:var(--sh2)}
+.cn:before,.cn:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08);animation:float 9s ease-in-out infinite}
+.cn:before{width:340px;height:340px;left:-90px;top:-120px}.cn:after{width:260px;height:260px;right:-60px;bottom:-100px;animation-delay:-4s}
+.cn>*{position:relative}
+.cn .tag{background:rgba(255,255,255,.16);color:#fff}
+.cn h2 span{color:#99f6e4}.cn p{max-width:600px;margin:0 auto 28px;color:#d5f5f0}
+.cn .cta{justify-content:center;margin:0}
+.cn .btn.o{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}
+.cn .btn.o:hover{background:#fff;color:var(--teal2)}
+.cn .btn.p{background:#fff;color:var(--teal2);box-shadow:0 14px 28px -12px rgba(0,0,0,.4)}
+footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
+
+.bk{display:grid;grid-template-columns:1.1fr 1fr;gap:0;overflow:hidden}
+.bkimg img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px;transition:transform .8s}
+.bk:hover .bkimg img{transform:scale(1.04)}.bkimg{overflow:hidden}
+.bkt{padding:44px}.bkt p{color:var(--mut);margin:6px 0 22px}.bkt .cta{margin:0}
+.cn{background:linear-gradient(135deg,rgba(10,93,87,.9),rgba(20,168,154,.82)),url(connect.jpg) center/cover}
+@media(max-width:980px){.bk{grid-template-columns:1fr}.bkt{padding:28px}}
+
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(8,40,38,.55);backdrop-filter:blur(6px)}
+.modal[hidden]{display:none}
+.mbox{position:relative;width:min(480px,100%);padding:30px;max-height:92vh;overflow:auto;animation:pop2 .35s cubic-bezier(.2,.8,.2,1)}
+.mbox h3{font-size:1.4rem;margin-bottom:6px;padding-right:30px}.mbox p{color:var(--mut);font-size:.92rem;margin-bottom:16px}
+.mx{position:absolute;top:14px;right:16px;border:0;background:var(--mint);color:var(--teal2);width:34px;height:34px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer}
+.opts{display:grid;gap:8px;margin-bottom:14px}
+.opts label{display:flex;gap:10px;align-items:center;padding:10px 14px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;font-weight:500;font-size:.93rem;transition:.2s}
+.opts label:hover{border-color:var(--teal)}.opts label:has(input:checked){background:var(--mint);border-color:var(--teal)}
+.opts input{accent-color:var(--teal);width:17px;height:17px}
+.mbox input[type=text],.mbox textarea{width:100%;font:inherit;padding:11px 14px;border:1.5px solid var(--line);border-radius:14px;margin-bottom:10px;background:#fff;color:var(--ink);resize:vertical}
+.mbox input[type=text]:focus,.mbox textarea:focus{outline:0;border-color:var(--teal)}
+.mbox .btn{width:100%;justify-content:center;margin-top:4px}
+.mbox textarea[readonly]{background:#f3faf9;font-size:.88rem}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:8px}.send .btn{margin:0;padding:12px 10px;font-size:.9rem}
+.mbox .sm{font-size:.82rem;margin:12px 0 4px}.lnk{background:none;border:0;color:var(--teal);font:600 .9rem Outfit,sans-serif;cursor:pointer;padding:4px 0}
+@keyframes pop2{from{opacity:0;transform:translateY(20px) scale(.96)}}
+/* keyframes */
+@keyframes glow{50%{box-shadow:0 0 0 12px rgba(20,184,166,.07),0 14px 40px -6px rgba(15,155,142,.7)}}
+@keyframes kb{to{transform:scale(1.06) translateY(-1.5%)}}
+@keyframes breathe{50%{box-shadow:0 30px 56px -20px rgba(15,155,142,.45)}}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+@keyframes blink{50%{border-color:transparent;opacity:.4}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@keyframes shine{50%,100%{transform:translateX(120%)}}
+@keyframes dash{to{stroke-dashoffset:-12}}
+@keyframes pop{0%,15%{transform:scale(0)}30%,90%{transform:scale(1)}100%{transform:scale(0)}}
+@keyframes park{0%{transform:translateX(-120px)}35%,70%{transform:translateX(0)}100%{transform:translateX(150px)}}
+@keyframes gate{0%,20%{transform:rotate(0)}35%,65%{transform:rotate(-70deg)}80%,100%{transform:rotate(0)}}
+@keyframes ring{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@keyframes grow{0%{transform:scaleY(0)}35%,85%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+@keyframes sig{0%{stroke-dashoffset:400}60%,100%{stroke-dashoffset:0}}
+
+@media(max-width:980px){
+ .hero-g,.ab{grid-template-columns:1fr}
+ .stage{height:420px;max-width:560px;margin:0 auto;width:100%}
+ .sg,.pg{grid-template-columns:repeat(2,1fr)}
+ .stats,.cert{grid-template-columns:repeat(2,1fr)}
+ .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:14px 24px;border-bottom:1px solid var(--line)}
+ .links.open{display:flex}.burger{display:block}.nav .btn{display:none}
+ .eg{grid-template-columns:1fr}.ph{max-width:420px;margin:0 auto 20px}
+}
+@media(max-width:620px){
+ .sg,.pg{grid-template-columns:1fr}.feat{grid-template-columns:repeat(2,1fr)}
+ .job{grid-template-columns:1fr}.job .logo2{width:70px;height:70px;font-size:1.1rem}
+ .cn{padding:48px 22px}.info{grid-template-columns:1fr}.stage{height:400px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.ecg path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+<symbol id="act" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+<symbol id="chk" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></symbol>
+<symbol id="rep" viewBox="0 0 24 24"><path d="m17 1 4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="m7 23-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+<symbol id="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+<symbol id="cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="case" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+<symbol id="awd" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></symbol>
+<symbol id="lang" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+<symbol id="code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+<symbol id="wire" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 12h4l4-6h2M11 12l4 6h2"/></symbol>
+<symbol id="tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+<symbol id="gh" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+<symbol id="li" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+<symbol id="xi" viewBox="0 0 24 24"><path d="M18.188 0c-.517 0-.741.325-.927.662 0 0-4.582 8.025-7.11 12.451l-4.52-8.156c-.184-.337-.41-.662-.926-.662H.671c-.347 0-.582.261-.582.585 0 .157.052.312.13.442l5.03 9.071-6.103 10.722c-.08.139-.13.284-.13.44 0 .325.235.586.582.586h4.024c.516 0 .741-.325.927-.661l6.183-10.865 7.18 12.571c.185.336.41.661.926.661h4.024c.348 0 .583-.261.583-.586 0-.156-.053-.301-.131-.44l-7.25-12.698 7.172-12.565c.08-.13.131-.285.131-.442 0-.324-.235-.585-.583-.585h-4.024z"/></symbol>
+</defs></svg>
+
+<nav id="nav"><div class="wrap nav">
+  <a class="logo" href="#top"><i>ME</i><span>Elbadrawy<small>Embedded Software</small></span></a>
+  <div class="links" id="links">
+    <a href="#about">About</a><a href="#skills">Stack</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#book">Book</a><a href="#education">Education</a><a href="#connect">Connect</a>
+  </div>
+  <a class="btn p" href="#connect"><svg class="ic"><use href="#mail"/></svg>Contact me</a>
+  <button class="burger" id="burger" aria-label="Menu"><svg class="ic" style="width:28px;height:28px"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</div></nav>
+
+<header class="hero" id="top">
+  <svg class="ecg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60h330l16-4 14 4h60l14-50 18 100 18-70 12 20h120l16-4 14 4h60l14-50 18 100 18-70 12 20h260" fill="none" stroke="#7fdccf" stroke-width="2"/></svg>
+  <div class="wrap hero-g">
+    <div>
+      <span class="pill reveal"><span class="dot"></span>Working Student @ Infineon Technologies AG</span>
+      <img class="avatar reveal" style="--d:.05s" src="myPic.JPG" alt="Mahmoud Elbadrawy">
+      <h1 class="reveal" style="--d:.1s">Mahmoud<br>Elbadrawy</h1>
+      <div class="role reveal" style="--d:.2s">Embedded Software Engineer<br><span class="typed" id="typed">ARM Cortex-M drivers</span></div>
+      <p class="lead reveal" style="--d:.3s">I write the <b>low-level drivers, BSPs and configuration tools</b> that make microcontrollers usable, and test them with <b>Ceedling, Unity and CMock</b>. Studying Automotive Software Engineering at <b>TU Chemnitz</b>.</p>
+      <div class="cta reveal" style="--d:.4s">
+        <button class="btn p" id="mailBtn" onclick="copyMail(this)"><svg class="ic"><use href="#cp"/></svg><span>mahmoud@elbadrawy.de</span></button>
+        <a class="btn o" href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#li"/></svg>LinkedIn</a>
+        <a class="btn o" href="https://www.xing.com/profile/Mahmoud_Elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#xi"/></svg>XING</a>
+        <a class="btn o" href="https://github.com/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic"><use href="#gh"/></svg>GitHub</a>
+      </div>
+      <div class="feat reveal" style="--d:.5s">
+        <div><svg class="ic"><use href="#cpu"/></svg>PDL Drivers</div>
+        <div><svg class="ic"><use href="#wire"/></svg>Protocols</div>
+        <div><svg class="ic"><use href="#chk"/></svg>Unit Testing</div>
+        <div><svg class="ic"><use href="#rep"/></svg>CI / CD</div>
+      </div>
+      <div class="chips reveal" style="--d:.6s"><span>C / C++</span><span>ARM Cortex-M</span><span>Open to relocation in Germany</span></div>
+    </div>
+
+    <div class="stage reveal" style="--d:.3s">
+      <div class="card dash">
+        <div class="dh"><i></i><i></i><i></i><b>Peripheral overview</b></div>
+        <div class="drv"><span>GPIO</span><span>SysTick</span><span>Timers</span><span>UART</span><span>LIN</span></div>
+        <div class="wave"><em class="mono"><span>UART TX</span><span>115200 8N1</span></em>
+          <svg viewBox="0 0 1008 54" preserveAspectRatio="none"><defs><path id="w" d="M0 44h12V10h12v34h12V10h12v34h24V10h12v34h12V10h12v34h12V10h24v34h12V10h12v34h12V10h12v34h24V10h12v34h12V10h12v34h12V10h12v34h12V10h24v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34" fill="none" stroke="#0f9b8e" stroke-width="2.4" stroke-linejoin="round"/></defs><use href="#w"/><use href="#w" x="504"/></svg></div>
+        <div class="ci"><span><svg class="ic"><use href="#chk"/></svg>build</span><hr><span><svg class="ic"><use href="#chk"/></svg>unit tests</span><hr><span><svg class="ic"><use href="#chk"/></svg>CI</span></div>
+      </div>
+      <div class="fl c"><svg class="ic"><use href="#wire"/></svg>SPI · I²C · CAN · LIN</div>
+    </div>
+  </div>
+</header>
+
+<section id="about"><div class="wrap">
+  <div class="ab">
+    <div class="ph reveal"><div class="frame"><img src="about-desk.webp" alt="Mahmoud Elbadrawy working at his desk" loading="lazy" onerror="this.onerror=null;this.src='about-me.JPG'"></div></div>
+    <div>
+      <span class="tag reveal">01 // about</span>
+      <h2 class="reveal">Close to the <span>hardware</span>, careful with the code.</h2>
+      <p class="reveal" style="color:var(--mut)">I’m an embedded software engineer working at <b style="color:var(--ink)">Infineon Technologies</b> as a working student. I develop and extend the <b style="color:var(--ink)">Peripheral Driver Library (PDL)</b> and contribute to the Device Configurator tooling. In my Automotive Software Engineering master’s at TU Chemnitz I work where hardware limits meet software architecture.</p>
+      <p class="quote reveal">I don’t just write code. I build the nervous system of the vehicles of tomorrow.</p>
+      <div class="info">
+        <div class="reveal"><small><svg class="ic"><use href="#case"/></svg>current role</small><b>Working Student, Embedded Software</b><span>Infineon Technologies AG, Dresden</span></div>
+        <div class="reveal" style="--d:.08s"><small><svg class="ic"><use href="#cap"/></svg>studying</small><b>M.Sc. Automotive Software Eng.</b><span>TU Chemnitz</span></div>
+        <div class="reveal" style="--d:.16s"><small><svg class="ic"><use href="#pin"/></svg>location</small><b>Chemnitz, Germany</b><span>Open to relocation</span></div>
+        <div class="reveal" style="--d:.24s"><small><svg class="ic"><use href="#lang"/></svg>languages</small><b>Arabic · English · German</b><span>Native · C1 · A2 (learning)</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat reveal" style="--d:.1s"><b data-n="1">0</b><span>Books</span></div>
+    <div class="stat reveal"><b data-n="6">0</b><span>Projects</span></div>
+    <div class="stat reveal" style="--d:.2s"><b data-n="4">0</b><span>Certificates</span></div>
+    <div class="stat reveal" style="--d:.3s"><b data-n="3">0</b><span>Languages</span></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <span class="tag reveal">02 // stack</span><h2 class="reveal">Tech <span>stack</span></h2>
+  <p class="sub reveal">What I work with day to day, from registers to CI pipelines.</p>
+  <div class="sg">
+    <div class="sk reveal"><div class="ico"><svg class="ic"><use href="#code"/></svg></div><h3>Languages</h3><div class="t"><span>C</span><span>C++</span><span>Python</span><span>VHDL</span><span>Tcl</span></div></div>
+    <div class="sk reveal" style="--d:.08s"><div class="ico"><svg class="ic"><use href="#cpu"/></svg></div><h3>Embedded</h3><div class="t"><span>ARM Cortex-M</span><span>STM32</span><span>Infineon MCUs</span><span>AVR / ATmega32</span><span>Bare metal</span><span>GPIO · Timers · PWM · ADC</span><span>NVIC · DMA · WDT</span></div></div>
+    <div class="sk reveal" style="--d:.16s"><div class="ico"><svg class="ic"><use href="#wire"/></svg></div><h3>Protocols</h3><div class="t"><span>SPI</span><span>I²C</span><span>UART</span><span>CAN</span><span>LIN</span><span>FlexRay</span><span>Ethernet</span><span>MQTT</span></div></div>
+    <div class="sk reveal"><div class="ico"><svg class="ic"><use href="#chk"/></svg></div><h3>Testing &amp; QA</h3><div class="t"><span>Ceedling</span><span>Unity</span><span>CMock</span><span>Unit testing</span><span>Static code analysis</span></div></div>
+    <div class="sk reveal" style="--d:.08s"><div class="ico"><svg class="ic"><use href="#rep"/></svg></div><h3>Build &amp; DevOps</h3><div class="t"><span>CMake</span><span>Make</span><span>Docker</span><span>GitHub Actions</span><span>Git · GitHub · GitLab</span></div></div>
+    <div class="sk reveal" style="--d:.16s"><div class="ico"><svg class="ic"><use href="#tool"/></svg></div><h3>Tools</h3><div class="t"><span>Eclipse</span><span>VS Code</span><span>Keil µVision</span><span>Proteus</span><span>Vivado</span><span>Logic analyzer</span><span>Jira</span></div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <span class="tag reveal">03 // experience</span><h2 class="reveal">Where I’ve <span>worked</span></h2>
+  <p class="sub reveal">Two working-student roles, one in embedded software and one in business software.</p>
+  <div class="tl">
+    <div class="card job reveal"><div class="logo2 i">IFX</div><div>
+      <span class="badge">ACTIVE</span><small>Nov 2025 → Present</small><h3>Working Student, Embedded Software Engineer</h3><p class="o">Infineon Technologies AG · Dresden, Germany</p>
+      <ul><li>Develop and extend the Peripheral Driver Library (PDL) and example code for new microcontroller targets: GPIO, SysTick, Timers, UART, LIN.</li>
+      <li>Migrate embedded examples to new platforms and fix bugs in drivers and example implementations.</li>
+      <li>Implement peripheral features in the Device Configurator.</li>
+      <li>Added interactive graph views for peripheral data flow, enable states and clock routing, with real-time error highlighting.</li>
+      <li>Built unit-conversion utilities for timing registers (overflow ticks, Hz, µs).</li></ul></div></div>
+    <div class="card job reveal"><div class="logo2 c">C-8</div><div>
+      <span class="badge g">PREVIOUS</span><small>Mar 2025 → Oct 2025</small><h3>Working Student, Software Developer</h3><p class="o">CELERITAS-8 GmbH · Leipzig, Germany</p>
+      <ul><li>Digitalized and simplified accounting processes with Odoo-based software.</li>
+      <li>Implemented a customer portal with dashboard and KPI visualization.</li>
+      <li>Developed a responsive accounting landing page integrated with the system.</li></ul></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <span class="tag reveal">04 // projects</span><h2 class="reveal">Things I’ve <span>built</span></h2>
+  <p class="sub reveal">Hover a card. Every project links to its source code on GitHub.</p>
+  <div class="flt reveal" id="flt"><button class="on" data-f="all">All</button><button data-f="emb">Embedded</button><button data-f="sw">Software</button><button data-f="hdl">HDL &amp; Scripting</button></div>
+  <div class="pg">
+    <article class="pj reveal" data-c="emb"><div class="art"><img src="ci-cd.jpg" alt="Laptop with code editor next to an ARM development board" loading="lazy"></div>
+      <div class="pb"><h3>Containerized Embedded C Pipeline &amp; CI/CD <em>ON GOING</em></h3><p>Modular embedded monitoring system in C with CMake, tested with Ceedling, Unity and CMock. A Dockerized toolchain and GitHub Actions run build and unit tests on every commit.</p><div class="tags"><span>C</span><span>CMake</span><span>Docker</span><span>Ceedling</span><span>GitHub Actions</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/c-project-template" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <article class="pj reveal" data-c="emb" style="--d:.08s"><div class="art"><img src="smart-parking.jpg" alt="Tabletop smart parking prototype with toy cars, gate and breadboard" loading="lazy"></div>
+      <div class="pb"><h3>Smart Parking System</h3><p>Automated parking with real-time availability detection, gate access control and embedded sensor integration for smoother traffic flow.</p><div class="tags"><span>C</span><span>ATmega32</span><span>AVR</span><span>Sensors</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <article class="pj reveal" data-c="emb" style="--d:.16s"><div class="art"><img src="smart-home.jpg" alt="Tabletop smart home prototype with model house, sensors, LCD and keypad" loading="lazy"></div>
+      <div class="pb"><h3>Smart Home Control System</h3><p>Home automation for security and energy efficiency on an ATmega32, with LM35 and LDR sensors, LCD display, keypad and servo motor control.</p><div class="tags"><span>C</span><span>ATmega32</span><span>LM35 / LDR</span><span>PWM</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <article class="pj reveal" data-c="sw"><div class="art"><img src="tips-dashboard.jpg" alt="Monitor showing a tips analytics dashboard" loading="lazy"></div>
+      <div class="pb"><h3>Tips Dashboard</h3><p>Interactive web app for analyzing restaurant tipping behavior, with live charts and statistical insights built on Streamlit and Pandas.</p><div class="tags"><span>Python</span><span>Streamlit</span><span>Pandas</span><span>Data viz</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/tips_dashboard" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <article class="pj reveal" data-c="hdl" style="--d:.08s"><div class="art"><img src="vhdl.jpg" alt="FPGA development board with waveform simulation on a monitor" loading="lazy"></div>
+      <div class="pb"><h3>VHDL Lessons &amp; Concepts</h3><p>A structured learning repository with VHDL concepts, hands-on examples and exercises, simulated in Vivado.</p><div class="tags"><span>VHDL</span><span>Digital design</span><span>Vivado</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/VHDL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <article class="pj reveal" data-c="hdl" style="--d:.16s"><div class="art"><img src="tcl.jpg" alt="Terminal on a monitor in a teal-lit workspace" loading="lazy"></div>
+      <div class="pb"><h3>TCL Scripting &amp; Notes</h3><p>Notes and introductory scripts for Tcl, covering automation, tool configuration and EDA scripting workflows.</p><div class="tags"><span>Tcl/Tk</span><span>Automation</span><span>Scripting</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+  </div>
+</div></section>
+
+<section id="book"><div class="wrap">
+  <div class="bk card reveal">
+    <div class="bkimg"><img src="unit-testing-book.jpg" alt="Cover of the book Unit Testing for Embedded Systems on a desk with a laptop and development board" loading="lazy"></div>
+    <div class="bkt">
+      <span class="tag">05 // book</span>
+      <h2>Unit Testing for <span>Embedded Systems</span></h2>
+      <p>A beginner’s step-by-step guide to testing embedded C without hardware. I wrote it for engineers who are new to unit testing and want to start without a lab full of boards.</p>
+      <div class="cta"><button class="btn p" id="bkOpen"><svg class="ic"><use href="#mail"/></svg>Ask me about the book</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <span class="tag reveal">06 // education</span><h2 class="reveal">Learning <span>path</span></h2>
+  <p class="sub reveal">University degrees and hands-on embedded training.</p>
+  <div class="eg">
+    <div class="card ed reveal"><div class="ico"><svg class="ic"><use href="#cap"/></svg></div><div><small>M.Sc. · Oct 2024 → Mar 2028 (expected)</small><h3>Automotive Software Engineering</h3><p>TU Chemnitz, Germany</p></div></div>
+    <div class="card ed reveal" style="--d:.1s"><div class="ico"><svg class="ic"><use href="#cap"/></svg></div><div><small>B.Eng. · Oct 2019 → Jul 2024</small><h3>Communication &amp; Computer Engineering</h3><p>Mansoura University, Egypt</p><span class="z"><svg class="ic" style="width:14px;height:14px"><use href="#chk"/></svg>ZAB-recognized as German Bachelor-level degree</span></div></div>
+  </div>
+  <div class="cert">
+    <div class="reveal"><svg class="ic"><use href="#awd"/></svg><b>Microcontroller Architecture &amp; Interfaces (AVR)</b><span>NTI, Egypt · Oct–Nov 2023</span></div>
+    <div class="reveal" style="--d:.08s"><svg class="ic"><use href="#awd"/></svg><b>Embedded Systems Summer Program</b><span>Sprints, Egypt · Jul–Oct 2023</span></div>
+    <div class="reveal" style="--d:.16s"><svg class="ic"><use href="#awd"/></svg><b>C &amp; Embedded-C Programming</b><span>NTI, Egypt · Aug–Sep 2023</span></div>
+    <div class="reveal" style="--d:.24s"><svg class="ic"><use href="#awd"/></svg><b>Parallel Education Program</b><span>IMT School, Egypt · Jan–Apr 2024</span></div>
+  </div>
+</div></section>
+
+<section id="connect"><div class="wrap"><div class="cn reveal">
+  <span class="tag">07 // open to opportunities</span>
+  <h2>Let’s <span>work together</span></h2>
+  <p>I’m looking for junior embedded software roles in embedded systems, automotive software and IoT, anywhere in Germany. The quickest way to reach me is email or LinkedIn.</p>
+  <div class="cta">
+    <button class="btn p" onclick="copyMail(this)"><svg class="ic"><use href="#cp"/></svg><span>mahmoud@elbadrawy.de</span></button>
+    <a class="btn o" href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#li"/></svg>LinkedIn</a>
+    <a class="btn o" href="https://www.xing.com/profile/Mahmoud_Elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#xi"/></svg>XING</a>
+    <a class="btn o" href="https://github.com/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic"><use href="#gh"/></svg>GitHub</a>
+  </div>
+</div></div></section>
+
+<div class="modal" id="bkModal" hidden role="dialog" aria-modal="true" aria-labelledby="bkTitle">
+  <div class="mbox card">
+    <button class="mx" id="bkClose" aria-label="Close">&times;</button>
+    <div id="bk1">
+      <h3 id="bkTitle">What would you like to know?</h3>
+      <p>Pick your questions. Next, you choose how to send them to me.</p>
+      <div class="opts">
+        <label><input type="checkbox" checked> Price</label>
+        <label><input type="checkbox" checked> Topics covered</label>
+        <label><input type="checkbox"> Format (PDF or print)</label>
+        <label><input type="checkbox"> Who it’s for (level and prerequisites)</label>
+        <label><input type="checkbox"> Release date and availability</label>
+        <label><input type="checkbox"> Discounts for teams or universities</label>
+      </div>
+      <input id="bkName" type="text" placeholder="Your name" autocomplete="name">
+      <input id="bkMail" type="text" placeholder="Your email, so I can reply" autocomplete="email" hidden>
+      <textarea id="bkMsg" rows="3" placeholder="Anything else you’d like to ask? (optional)"></textarea>
+      <button class="btn p" id="bkNext">Continue</button>
+    </div>
+    <div id="bk2" hidden>
+      <h3>Send your message</h3>
+      <p>Choose how you’d like to send it. The text is already written for you.</p>
+      <textarea id="bkOut" rows="7" readonly></textarea>
+      <div class="send">
+        <a class="btn p" id="bkGmail" target="_blank" rel="noopener">Open in Gmail</a>
+        <a class="btn o" id="bkOutlook" target="_blank" rel="noopener">Open in Outlook</a>
+        <a class="btn o" id="bkApp">Default email app</a>
+        <button class="btn o" id="bkCopy">Copy message</button>
+      </div>
+      <p class="sm">Or write to <b>mahmoud@elbadrawy.de</b> directly.</p>
+      <button class="lnk" id="bkBack">&larr; Back</button>
+    </div>
+    <div id="bk3" hidden><h3>Thank you!</h3><p>Your message has been sent. I’ll reply by email soon.</p><button class="btn p" id="bkDone">Close</button></div>
+  </div>
+</div>
+
+<footer>Mahmoud Elbadrawy · Embedded Software Engineer · Chemnitz, Germany · 2026</footer>
+
+<script>
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+// counters
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n;let i=0;const t=setInterval(()=>{el.textContent=++i;if(i>=n)clearInterval(t)},700/n);co.unobserve(el)}),{threshold:.6});
+$$('[data-n]').forEach(el=>co.observe(el));
+// typed words
+const words=['ARM Cortex-M drivers','Peripheral Driver Library','Unit-tested embedded C','Automotive protocols','CI/CD for firmware'];let wi=0,ci=0,del=false;const ty=$('#typed');
+(function tick(){const w=words[wi];ci+=del?-1:1;ty.textContent=w.slice(0,ci);let d=del?35:70;if(!del&&ci===w.length){del=true;d=1400}else if(del&&ci===0){del=false;wi=(wi+1)%words.length;d=300}setTimeout(tick,d)})();
+// scroll: progress, nav, spy
+const nav=$('#nav'),bar=$('#bar'),secs=$$('section[id]'),lk=$$('.links a');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';nav.classList.toggle('sc',scrollY>10);
+ let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-140)cur=s.id});lk.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+// menu
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+lk.forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
+// project filter
+$$('#flt button').forEach(b=>b.onclick=()=>{$$('#flt button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ $$('.pj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f))});
+// 3D tilt on project cards (mouse only)
+if(matchMedia('(hover:hover)').matches)$$('.pj').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transition='box-shadow .3s';c.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`});
+ c.addEventListener('mouseleave',()=>{c.style.transition='';c.style.transform=''})});
+// book questions: works without a mail client; optional direct send via Web3Forms
+(()=>{const TO='mahmoud@elbadrawy.de',KEY='60059188-b9b3-444b-917f-ad54491e612b' /* Web3Forms access key */,SUBJ='Question about your book: Unit Testing for Embedded Systems';
+ const m=$('#bkModal'),show=id=>['bk1','bk2','bk3'].forEach(x=>$('#'+x).hidden=x!==id),
+ open=()=>{show('bk1');m.hidden=false;document.body.style.overflow='hidden'},close=()=>{m.hidden=true;document.body.style.overflow=''};
+ if(KEY){$('#bkMail').hidden=false;$('#bkNext').textContent='Send message'}
+ $('#bkOpen').onclick=open;$('#bkClose').onclick=close;$('#bkDone').onclick=close;$('#bkBack').onclick=()=>show('bk1');
+ m.addEventListener('click',e=>{if(e.target===m)close()});addEventListener('keydown',e=>{if(e.key==='Escape'&&!m.hidden)close()});
+ const compose=()=>{const q=$$('.opts label',m).filter(l=>l.firstElementChild.checked).map(l=>'- '+l.textContent.trim()),name=$('#bkName').value.trim(),extra=$('#bkMsg').value.trim();
+  return['Hello Mahmoud,','','I’m interested in your book “Unit Testing for Embedded Systems”.',q.length?'Could you please tell me about:':'Could you please send me more details?',...q,...(extra?['','Also: '+extra]:[]),'','Best regards,',name].join('\n')};
+ $('#bkNext').onclick=async()=>{const body=compose();
+  if(KEY){const em=$('#bkMail').value.trim();if(!/^\S+@\S+\.\S+$/.test(em)){$('#bkMail').focus();return}
+   try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:KEY,subject:SUBJ,name:$('#bkName').value||'Website visitor',email:em,message:body})});
+    if((await r.json()).success){show('bk3');return}}catch(e){}}
+  const su=encodeURIComponent(SUBJ),bd=encodeURIComponent(body);
+  $('#bkOut').value=body;
+  $('#bkGmail').href=`https://mail.google.com/mail/?view=cm&fs=1&to=${TO}&su=${su}&body=${bd}`;
+  $('#bkOutlook').href=`https://outlook.live.com/mail/0/deeplink/compose?to=${TO}&subject=${su}&body=${bd}`;
+  $('#bkApp').href=`mailto:${TO}?subject=${su}&body=${bd}`;show('bk2')};
+ $('#bkCopy').onclick=()=>{const o=$('#bkOut');o.select();(navigator.clipboard?navigator.clipboard.writeText(o.value):Promise.reject()).catch(()=>document.execCommand('copy'));$('#bkCopy').textContent='Copied!';setTimeout(()=>$('#bkCopy').textContent='Copy message',1600)}})();
+// copy email
+function copyMail(btn){const t=btn.querySelector('span'),m='mahmoud@elbadrawy.de';if(t.dataset.busy)return;t.dataset.busy=1;
+ (navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).then(()=>{t.textContent='Copied!'}).catch(()=>{const i=document.createElement('input');i.value=m;document.body.appendChild(i);i.select();try{document.execCommand('copy');t.textContent='Copied!'}catch(e){location.href='mailto:'+m}i.remove()}).finally(()=>setTimeout(()=>{t.textContent=m;delete t.dataset.busy},1600))}
+</script>
+</body>
+</html>
