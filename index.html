@@ -265,35 +265,37 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.ecg path{stroke-dashoffset:0}}
 
-/* centered portfolio hero — Option 2 */
-.hero-v2{padding:42px 0 22px;overflow:visible}
-.hero-v2 .ecg{bottom:-2px;opacity:.34;pointer-events:none}
+/* centered portfolio hero — compact Option 2 with always-visible carousel */
+.hero-v2{padding:22px 0 8px;overflow:visible}
+.hero-v2 .ecg{bottom:-2px;opacity:.22;pointer-events:none}
 .hero-centered{max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;position:relative}
-.hero-centered .hero-avatar{width:116px;height:116px;margin:0 auto 20px;object-position:50% 12%}
-.hero-centered .pill{margin:0 auto}
-.hero-centered h1{font-size:clamp(2.8rem,7vw,5.15rem);line-height:1.02;margin:18px 0 12px}
-.hero-centered .role{font-size:clamp(1.25rem,2.6vw,1.8rem)}
-.hero-centered .lead{max-width:720px;margin:18px auto 24px}
-.hero-centered .cta{justify-content:center;margin:0 0 18px}
-.hero-centered .hero-chips{justify-content:center;margin:0 auto}
-.hero-projects{padding-top:38px;padding-bottom:32px}
-.hero-projects-heading{text-align:center;margin-bottom:22px}
-.hero-projects-heading .tag{margin-bottom:10px}
-.hero-projects-heading h2{font-size:clamp(1.65rem,3.3vw,2.35rem);margin-bottom:8px}
-.hero-projects-heading p{color:var(--mut);font-size:.96rem}
-.hero-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.hero-project-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-.hero-project-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--teal)}
+.hero-centered .hero-avatar{width:80px;height:80px;margin:0 auto 10px;object-position:50% 12%}
+.hero-centered .pill{margin:0 auto;padding:5px 13px;font-size:.82rem}
+.hero-centered h1{font-size:clamp(2.35rem,5.2vw,4.25rem);line-height:1.02;margin:10px 0 7px}
+.hero-centered .role{font-size:clamp(1.12rem,2vw,1.5rem)}
+.hero-centered .lead{max-width:720px;margin:10px auto 14px;font-size:.98rem;line-height:1.48}
+.hero-centered .cta{justify-content:center;margin:0 0 10px;gap:9px}
+.hero-centered .cta .btn{padding:9px 16px;font-size:.88rem}
+.hero-centered .hero-chips{justify-content:center;margin:0 auto;gap:6px}
+.hero-centered .hero-chips span{padding:4px 10px;font-size:.73rem}
+.hero-projects{padding-top:10px;padding-bottom:20px;overflow:hidden}
+.hero-projects-heading{text-align:center;margin-bottom:10px}
+.hero-projects-heading .tag{margin-bottom:4px;font-size:.68rem;padding:3px 10px}
+.hero-projects-heading h2{font-size:clamp(1.25rem,2.4vw,1.7rem);margin:0}
+.hero-carousel{overflow:hidden;width:100%;mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
+.hero-project-track{display:flex;width:max-content;animation:hero-marquee-right 42s linear infinite;will-change:transform}
+.hero-project-group{display:flex;gap:14px;padding:5px 7px;flex:none}
+.hero-project-card{width:190px;flex:none;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 7px 20px -13px rgba(11,110,102,.35)}
 .hero-project-image{aspect-ratio:16/9;overflow:hidden;background:var(--mint)}
-.hero-project-image img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
-.hero-project-card:hover .hero-project-image img{transform:scale(1.05)}
-.hero-project-copy{padding:16px 18px 18px}
-.hero-project-copy>span{font-family:"Space Mono",monospace;font-size:.65rem;letter-spacing:.04em;color:var(--teal);font-weight:700}
-.hero-project-copy h3{font-size:1.04rem;line-height:1.3;margin:6px 0 10px}
-.hero-project-copy small{display:flex;align-items:center;justify-content:space-between;color:var(--teal2);font-weight:700;font-size:.82rem}
-.hero-project-copy small b{font-size:1rem}
-@media(max-width:900px){.hero-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-project-card:last-child{grid-column:1/-1;max-width:calc(50% - 10px);width:100%;justify-self:center}}
-@media(max-width:600px){.hero-v2{padding:30px 0 16px}.hero-centered .hero-avatar{width:100px;height:100px}.hero-centered h1{font-size:clamp(2.45rem,11vw,3.7rem)}.hero-centered .lead{font-size:1rem}.hero-centered .cta{gap:9px}.hero-centered .cta .btn{padding:10px 14px;font-size:.86rem}.hero-projects{padding-top:26px}.hero-project-grid{grid-template-columns:1fr;gap:14px}.hero-project-card:last-child{grid-column:auto;max-width:none}.hero-project-copy{padding:14px 16px 16px}}
+.hero-project-image img{width:100%;height:100%;object-fit:cover}
+.hero-project-copy{padding:8px 11px 10px}
+.hero-project-copy>span{font-family:"Space Mono",monospace;font-size:.56rem;letter-spacing:.025em;color:var(--teal);font-weight:700}
+.hero-project-copy h3{font-size:.82rem;line-height:1.22;margin-top:3px;font-weight:700}
+@keyframes hero-marquee-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(hover:hover){.hero-carousel:hover .hero-project-track{animation-play-state:paused}}
+@media(prefers-reduced-motion:reduce){.hero-project-track{animation:none;transform:none}.hero-carousel{overflow-x:auto;mask-image:none;-webkit-mask-image:none}}
+@media(max-width:900px){.hero-project-card{width:172px}.hero-project-group{gap:11px}.hero-v2{padding-top:16px}}
+@media(max-width:600px){.hero-v2{padding:12px 0 4px}.hero-centered .hero-avatar{width:72px;height:72px}.hero-centered h1{font-size:clamp(2rem,9vw,3rem)}.hero-centered .lead{font-size:.9rem;margin:8px auto 11px}.hero-centered .cta{gap:7px}.hero-centered .cta .btn{padding:8px 11px;font-size:.78rem}.hero-centered .hero-chips span{font-size:.66rem;padding:3px 8px}.hero-projects{padding-top:8px;padding-bottom:14px}.hero-projects-heading{margin-bottom:7px}.hero-project-card{width:158px}.hero-project-copy h3{font-size:.76rem}.hero-project-group{gap:9px}}
 
 </style>
 </head>
@@ -350,24 +352,25 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </header>
 
 <div class="wrap hero-projects" aria-label="Featured projects">
-  <div class="hero-projects-heading reveal">
+  <div class="hero-projects-heading">
     <span class="tag">Selected work</span>
     <h2>A few things I’ve <span>built</span></h2>
-    <p>Embedded systems, firmware tooling and software projects.</p>
   </div>
-  <div class="hero-project-grid">
-    <a class="hero-project-card reveal" href="https://github.com/mahmoud-elbadrawy/c-project-template" target="_blank" rel="noopener">
-      <div class="hero-project-image"><img src="ci-cd.webp" alt="Embedded C pipeline and CI/CD project preview" loading="lazy"></div>
-      <div class="hero-project-copy"><span>EMBEDDED · CI / CD</span><h3>Containerized Embedded C Pipeline</h3><small>View project <b>↗</b></small></div>
-    </a>
-    <a class="hero-project-card reveal" style="--d:.08s" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank" rel="noopener">
-      <div class="hero-project-image"><img src="smart-parking.webp" alt="Smart parking system prototype" loading="lazy"></div>
-      <div class="hero-project-copy"><span>EMBEDDED · AVR</span><h3>Smart Parking System</h3><small>View project <b>↗</b></small></div>
-    </a>
-    <a class="hero-project-card reveal" style="--d:.16s" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank" rel="noopener">
-      <div class="hero-project-image"><img src="smart-home.webp" alt="Smart home control system prototype" loading="lazy"></div>
-      <div class="hero-project-copy"><span>EMBEDDED · AUTOMATION</span><h3>Smart Home Control System</h3><small>View project <b>↗</b></small></div>
-    </a>
+  <div class="hero-carousel" aria-label="Six featured projects, continuously scrolling">
+    <div class="hero-project-track">
+      <div class="hero-project-group"><div class="hero-project-card"><div class="hero-project-image"><img src="ci-cd.webp" alt="Containerized Embedded C Pipeline" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · CI / CD</span><h3>Containerized Embedded C Pipeline</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="smart-parking.webp" alt="Smart Parking System" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · AVR</span><h3>Smart Parking System</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="smart-home.webp" alt="Smart Home Control System" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · AUTOMATION</span><h3>Smart Home Control System</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="tips-dashboard.webp" alt="Tips Dashboard" loading="eager"></div><div class="hero-project-copy"><span>SOFTWARE · DATA</span><h3>Tips Dashboard</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="vhdl.webp" alt="VHDL Projects" loading="eager"></div><div class="hero-project-copy"><span>HDL · DIGITAL DESIGN</span><h3>VHDL Projects</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="tcl.webp" alt="TCL Scripting" loading="eager"></div><div class="hero-project-copy"><span>SCRIPTING · AUTOMATION</span><h3>TCL Scripting</h3></div></div></div>
+      <div class="hero-project-group" aria-hidden="true"><div class="hero-project-card"><div class="hero-project-image"><img src="ci-cd.webp" alt="Containerized Embedded C Pipeline" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · CI / CD</span><h3>Containerized Embedded C Pipeline</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="smart-parking.webp" alt="Smart Parking System" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · AVR</span><h3>Smart Parking System</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="smart-home.webp" alt="Smart Home Control System" loading="eager"></div><div class="hero-project-copy"><span>EMBEDDED · AUTOMATION</span><h3>Smart Home Control System</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="tips-dashboard.webp" alt="Tips Dashboard" loading="eager"></div><div class="hero-project-copy"><span>SOFTWARE · DATA</span><h3>Tips Dashboard</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="vhdl.webp" alt="VHDL Projects" loading="eager"></div><div class="hero-project-copy"><span>HDL · DIGITAL DESIGN</span><h3>VHDL Projects</h3></div></div>
+<div class="hero-project-card"><div class="hero-project-image"><img src="tcl.webp" alt="TCL Scripting" loading="eager"></div><div class="hero-project-copy"><span>SCRIPTING · AUTOMATION</span><h3>TCL Scripting</h3></div></div></div>
+    </div>
   </div>
 </div>
 
