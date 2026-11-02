@@ -131,22 +131,25 @@ h2 span{color:var(--teal)}
 .sk div.t span{font-size:.8rem;font-weight:500;padding:5px 12px;border-radius:10px;background:#f3faf9;border:1px solid var(--line);transition:.2s}
 .sk div.t span:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 
-/* experience */
-.tl{position:relative;display:grid;gap:26px;padding-left:34px}
-.tl:before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(var(--teal),#a7ece3)}
-.job{position:relative;display:grid;grid-template-columns:96px 1fr;gap:22px;padding:26px}
-.job:before{content:"";position:absolute;left:-31px;top:34px;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid var(--teal)}
-.job .logo2{width:96px;height:96px;border-radius:24px;display:grid;place-items:center;font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:1px;position:relative;overflow:hidden}
-.job .logo2.i{background:linear-gradient(135deg,#0b6e66,#14b8a6)}.job .logo2.c{background:linear-gradient(135deg,#1d4ed8,#60a5fa)}
-.job .logo2:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);animation:shine 4s infinite}
-.job small{font-family:"Space Mono",monospace;color:var(--teal);font-size:.78rem}
-.job h3{font-size:1.25rem;margin:2px 0}
-.job p.o{color:var(--mut);font-size:.92rem;margin-bottom:10px}
-.job ul{list-style:none;display:grid;gap:7px}
-.job li{display:flex;gap:10px;font-size:.93rem;color:#2c4a48}
-.job li:before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:2px;background:var(--teal);transform:rotate(45deg)}
-.badge{float:right;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:999px;background:#dcfce7;color:#15803d}
-.badge.g{background:#e2e8f0;color:#475569}
+/* experience — editorial layout */
+.experience-editorial{padding-top:84px;padding-bottom:84px}
+.experience-editorial .experience-heading{max-width:680px;margin-bottom:54px}
+.experience-editorial .experience-heading .sub{margin-bottom:0}
+.experience-editorial .job-entry{padding:34px 0 40px;border-top:1px solid var(--line)}
+.experience-editorial .job-entry:last-child{border-bottom:1px solid var(--line)}
+.experience-editorial .job-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.experience-editorial .job-index{display:block;font:700 .68rem "Space Mono",monospace;letter-spacing:1.8px;color:var(--teal);margin-bottom:12px}
+.experience-editorial .job-top h3{font-size:clamp(1.45rem,3vw,1.85rem);letter-spacing:-.03em;margin:0 0 6px}
+.experience-editorial .job-role{color:var(--mut);font-size:.96rem;margin:0}
+.experience-editorial .job-meta{display:flex;flex-direction:column;align-items:flex-end;gap:5px;padding-top:3px;white-space:nowrap;color:var(--mut);font-size:.84rem}
+.experience-editorial .job-meta span:first-child{color:var(--ink);font-weight:600}
+.experience-editorial .job-content{max-width:790px;margin:26px 0 0 auto}
+.experience-editorial .job-intro{color:var(--ink);font-size:.96rem;line-height:1.75;font-weight:500;margin:0 0 17px;padding-left:16px;border-left:2px solid var(--teal)}
+.experience-editorial .job-content ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:30px;row-gap:13px;margin:0;padding:0}
+.experience-editorial .job-content li{position:relative;padding-left:16px;color:var(--mut);font-size:.9rem;line-height:1.7}
+.experience-editorial .job-content li:before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.experience-editorial .experience-footer{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin-top:30px;color:#78918e;font:400 .62rem "Space Mono",monospace;letter-spacing:1.1px}
+.experience-editorial .experience-footer span:nth-child(even){color:var(--teal)}
 
 /* projects */
 .flt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
@@ -465,23 +468,54 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
     <article class="skill-group reveal" style="--d:.08s"><div class="skill-heading"><svg class="ic"><use href="#rep"/></svg><div><h3>Build &amp; DevOps</h3><i></i></div></div><div class="skill-tags"><span>CMake</span><span>Make</span><span>GitHub Actions</span><span>Git · GitHub · GitLab</span></div></article>
     <article class="skill-group reveal" style="--d:.16s"><div class="skill-heading"><svg class="ic"><use href="#tool"/></svg><div><h3>Tools</h3><i></i></div></div><div class="skill-tags"><span>Eclipse</span><span>VS Code</span><span>Keil µVision</span><span>Proteus</span><span>Vivado</span><span>Logic analyzer</span><span>Jira</span></div></article>
   </div>
-</div></section><section id="experience"><div class="wrap">
-  <span class="section-index reveal"><i></i> EXPERIENCE</span><h2 class="reveal">Where I’ve <span>worked</span></h2>
-  <p class="sub reveal">Two working-student roles, one in embedded software and one in business software.</p>
-  <div class="tl">
-    <div class="card job reveal"><div class="logo2 i">IFX</div><div>
-      <span class="badge">ACTIVE</span><small>Nov 2025 → Present</small><h3>Working Student, Embedded Software Engineer</h3><p class="o">Infineon Technologies AG · Dresden, Germany</p>
-      <ul><li>Develop and extend the Peripheral Driver Library (PDL) and example code for new microcontroller targets: GPIO, SysTick, Timers, UART, LIN.</li>
-      <li>Migrate embedded examples to new platforms and fix bugs in drivers and example implementations.</li>
-      <li>Implement peripheral features in the Device Configurator.</li>
-      <li>Added interactive graph views for peripheral data flow, enable states and clock routing, with real-time error highlighting.</li>
-      <li>Built unit-conversion utilities for timing registers (overflow ticks, Hz, µs).</li></ul></div></div>
-    <div class="card job reveal"><div class="logo2 c">C-8</div><div>
-      <span class="badge g">PREVIOUS</span><small>Mar 2025 → Oct 2025</small><h3>Working Student, Software Developer</h3><p class="o">CELERITAS-8 GmbH · Leipzig, Germany</p>
-      <ul><li>Digitalized and simplified accounting processes with Odoo-based software.</li>
-      <li>Implemented a customer portal with dashboard and KPI visualization.</li>
-      <li>Developed a responsive accounting landing page integrated with the system.</li></ul></div></div>
+</div></section><section id="experience" class="experience-editorial"><div class="wrap">
+  <div class="experience-heading reveal">
+    <span class="section-index"><i></i> EXPERIENCE</span>
+    <h2>Professional <span>Experience.</span></h2>
+    <p class="sub">Building reliable software, developing embedded solutions, and turning complex technical requirements into practical results.</p>
   </div>
+
+  <article class="job-entry reveal">
+    <div class="job-top">
+      <div>
+        <span class="job-index">01 / CURRENT ROLE</span>
+        <h3>Infineon Technologies AG</h3>
+        <p class="job-role">Working Student · Embedded Software Engineer</p>
+      </div>
+      <div class="job-meta"><span>Nov 2025 — Present</span><span>Dresden, Germany</span></div>
+    </div>
+    <div class="job-content">
+      <p class="job-intro">Developing and extending embedded software components and configuration tools for new microcontroller platforms.</p>
+      <ul>
+        <li>Develop and extend low-level software drivers and example implementations for new microcontroller platforms.</li>
+        <li>Migrate embedded examples to new platforms and resolve bugs in drivers and example implementations.</li>
+        <li>Implement peripheral features in Device Configurator.</li>
+        <li>Develop interactive graph views for peripheral data flow, enable states, and clock routing, with real-time error highlighting.</li>
+        <li>Build timing-register conversion utilities for overflow ticks, frequency, and microseconds.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job-entry reveal">
+    <div class="job-top">
+      <div>
+        <span class="job-index">02 / PREVIOUS ROLE</span>
+        <h3>CELERITAS-8 GmbH</h3>
+        <p class="job-role">Working Student · Software Developer</p>
+      </div>
+      <div class="job-meta"><span>Mar 2025 — Oct 2025</span><span>Leipzig, Germany</span></div>
+    </div>
+    <div class="job-content">
+      <p class="job-intro">Supporting business digitalization through software solutions and customer-facing web applications.</p>
+      <ul>
+        <li>Digitalized and simplified accounting processes with Odoo-based software.</li>
+        <li>Implemented a customer portal featuring dashboards and KPI visualizations.</li>
+        <li>Developed a responsive accounting landing page integrated with the company's system.</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="experience-footer"><span>ENGINEERING</span><span>·</span><span>SOFTWARE DEVELOPMENT</span><span>·</span><span>CONTINUOUS LEARNING</span></div>
 </div></section>
 
 <section id="projects"><div class="wrap">
