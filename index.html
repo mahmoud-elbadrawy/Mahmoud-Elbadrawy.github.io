@@ -334,6 +334,25 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 .sk div.t span{background:#eaf7f4;border:1px solid transparent;border-radius:999px;padding:5px 12px;font-size:.78rem}
 @media(max-width:600px){.section-index{font-size:.74rem;gap:10px}.section-index i{width:28px}.sk{padding:18px}}
 
+
+/* Editorial Tech Stack: open icon-led groups, no enclosing skill cards */
+.skills-editorial{position:relative;overflow:hidden;background:linear-gradient(180deg,#f6fcfb 0%,#effaf7 100%)}
+.skills-editorial:after{content:"";position:absolute;right:-24px;top:-28px;width:180px;height:180px;border:2px solid rgba(20,184,166,.10);border-radius:36px;transform:rotate(18deg);pointer-events:none}
+.skills-editorial>.wrap{position:relative;z-index:1}
+.skills-editorial h2{font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;margin:4px 0 16px}
+.skills-editorial h2 span{color:var(--teal);background:none;-webkit-text-fill-color:currentColor}
+.skills-editorial>.wrap>.sub{max-width:760px;text-align:left;margin:0 0 54px;font-size:1.08rem}
+.skills-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px;row-gap:46px}
+.skill-group{min-width:0}
+.skill-heading{display:flex;align-items:center;gap:22px;margin-bottom:18px}
+.skill-heading>.ic{width:48px;height:48px;color:var(--teal2);stroke-width:1.8;flex:none}
+.skill-heading h3{font-size:1.18rem;line-height:1.25;margin:0 0 10px;font-weight:750}
+.skill-heading i{display:block;width:42px;height:2px;background:var(--teal)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:9px 10px}
+.skill-tags span{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:#e1f5f0;color:var(--ink);font-size:.88rem;line-height:1.2;border:1px solid rgba(15,155,142,.04)}
+@media(max-width:900px){.skills-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 30px}.skills-editorial>.wrap>.sub{margin-bottom:38px}}
+@media(max-width:600px){.skills-list{grid-template-columns:1fr;row-gap:30px}.skills-editorial h2{font-size:2.35rem}.skill-heading{gap:16px}.skill-heading>.ic{width:40px;height:40px}.skill-tags span{font-size:.82rem;padding:6px 12px}}
+
 </style>
 </head>
 <body>
@@ -434,20 +453,19 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="about-meta reveal"><span><svg class="ic"><use href="#pin"/></svg> Chemnitz, Germany</span><span><svg class="ic"><use href="#case"/></svg> Infineon Technologies AG</span><span><svg class="ic"><use href="#lang"/></svg> Arabic · English · German</span></div>
 </div></section>
 
-<section id="skills"><div class="wrap">
-  <span class="section-index reveal"><i></i> TECH STACK</span><h2 class="reveal">Tech <span>stack</span></h2>
-  <p class="sub reveal">What I work with day to day, from registers to CI pipelines.</p>
-  <div class="sg">
-    <div class="sk reveal"><div class="ico"><svg class="ic"><use href="#code"/></svg></div><h3>Languages</h3><div class="t"><span>C</span><span>C++</span><span>Python</span><span>VHDL</span><span>Tcl</span></div></div>
-    <div class="sk reveal" style="--d:.08s"><div class="ico"><svg class="ic"><use href="#cpu"/></svg></div><h3>Embedded</h3><div class="t"><span>ARM Cortex-M</span><span>STM32</span><span>Infineon MCUs</span><span>AVR / ATmega32</span><span>Bare metal</span><span>GPIO · Timers · PWM · ADC</span><span>NVIC · DMA · WDT</span></div></div>
-    <div class="sk reveal" style="--d:.16s"><div class="ico"><svg class="ic"><use href="#wire"/></svg></div><h3>Protocols</h3><div class="t"><span>SPI</span><span>I²C</span><span>UART</span><span>CAN</span><span>LIN</span><span>FlexRay</span><span>Ethernet</span><span>MQTT</span></div></div>
-    <div class="sk reveal"><div class="ico"><svg class="ic"><use href="#chk"/></svg></div><h3>Testing &amp; QA</h3><div class="t"><span>Ceedling</span><span>Unity</span><span>CMock</span><span>Unit testing</span><span>Static code analysis</span></div></div>
-    <div class="sk reveal" style="--d:.08s"><div class="ico"><svg class="ic"><use href="#rep"/></svg></div><h3>Build &amp; DevOps</h3><div class="t"><span>CMake</span><span>Make</span><span>Docker</span><span>GitHub Actions</span><span>Git · GitHub · GitLab</span></div></div>
-    <div class="sk reveal" style="--d:.16s"><div class="ico"><svg class="ic"><use href="#tool"/></svg></div><h3>Tools</h3><div class="t"><span>Eclipse</span><span>VS Code</span><span>Keil µVision</span><span>Proteus</span><span>Vivado</span><span>Logic analyzer</span><span>Jira</span></div></div>
+<section id="skills" class="skills-editorial"><div class="wrap">
+  <span class="section-index reveal"><i></i> TECH STACK</span>
+  <h2 class="reveal">My Tech <span>Stack.</span></h2>
+  <p class="sub reveal">A combination of embedded systems, modern development tools, and industry-standard technologies.</p>
+  <div class="skills-list">
+    <article class="skill-group reveal"><div class="skill-heading"><svg class="ic"><use href="#code"/></svg><div><h3>Languages</h3><i></i></div></div><div class="skill-tags"><span>C</span><span>C++</span><span>Python</span><span>VHDL</span><span>Tcl</span></div></article>
+    <article class="skill-group reveal" style="--d:.08s"><div class="skill-heading"><svg class="ic"><use href="#cpu"/></svg><div><h3>Embedded Systems</h3><i></i></div></div><div class="skill-tags"><span>ARM Cortex-M</span><span>STM32</span><span>Infineon MCUs</span><span>AVR / ATmega32</span><span>Bare metal</span><span>GPIO · Timers · PWM · ADC</span><span>NVIC · DMA · WDT</span></div></article>
+    <article class="skill-group reveal" style="--d:.16s"><div class="skill-heading"><svg class="ic"><use href="#wire"/></svg><div><h3>Protocols</h3><i></i></div></div><div class="skill-tags"><span>SPI</span><span>I²C</span><span>UART</span><span>CAN</span><span>LIN</span></div></article>
+    <article class="skill-group reveal"><div class="skill-heading"><svg class="ic"><use href="#chk"/></svg><div><h3>Testing &amp; QA</h3><i></i></div></div><div class="skill-tags"><span>Ceedling</span><span>Unity</span><span>CMock</span><span>Unit testing</span><span>Static code analysis</span></div></article>
+    <article class="skill-group reveal" style="--d:.08s"><div class="skill-heading"><svg class="ic"><use href="#rep"/></svg><div><h3>Build &amp; DevOps</h3><i></i></div></div><div class="skill-tags"><span>CMake</span><span>Make</span><span>GitHub Actions</span><span>Git · GitHub · GitLab</span></div></article>
+    <article class="skill-group reveal" style="--d:.16s"><div class="skill-heading"><svg class="ic"><use href="#tool"/></svg><div><h3>Tools</h3><i></i></div></div><div class="skill-tags"><span>Eclipse</span><span>VS Code</span><span>Keil µVision</span><span>Proteus</span><span>Vivado</span><span>Logic analyzer</span><span>Jira</span></div></article>
   </div>
-</div></section>
-
-<section id="experience"><div class="wrap">
+</div></section><section id="experience"><div class="wrap">
   <span class="section-index reveal"><i></i> EXPERIENCE</span><h2 class="reveal">Where I’ve <span>worked</span></h2>
   <p class="sub reveal">Two working-student roles, one in embedded software and one in business software.</p>
   <div class="tl">
