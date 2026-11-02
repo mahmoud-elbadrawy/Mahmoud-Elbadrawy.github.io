@@ -264,6 +264,37 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
  .cn{padding:48px 22px}.info{grid-template-columns:1fr}.stage{height:400px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.ecg path{stroke-dashoffset:0}}
+
+/* centered portfolio hero — Option 2 */
+.hero-v2{padding:42px 0 22px;overflow:visible}
+.hero-v2 .ecg{bottom:-2px;opacity:.34;pointer-events:none}
+.hero-centered{max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;position:relative}
+.hero-centered .hero-avatar{width:116px;height:116px;margin:0 auto 20px;object-position:50% 12%}
+.hero-centered .pill{margin:0 auto}
+.hero-centered h1{font-size:clamp(2.8rem,7vw,5.15rem);line-height:1.02;margin:18px 0 12px}
+.hero-centered .role{font-size:clamp(1.25rem,2.6vw,1.8rem)}
+.hero-centered .lead{max-width:720px;margin:18px auto 24px}
+.hero-centered .cta{justify-content:center;margin:0 0 18px}
+.hero-centered .hero-chips{justify-content:center;margin:0 auto}
+.hero-projects{padding-top:38px;padding-bottom:32px}
+.hero-projects-heading{text-align:center;margin-bottom:22px}
+.hero-projects-heading .tag{margin-bottom:10px}
+.hero-projects-heading h2{font-size:clamp(1.65rem,3.3vw,2.35rem);margin-bottom:8px}
+.hero-projects-heading p{color:var(--mut);font-size:.96rem}
+.hero-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.hero-project-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.hero-project-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--teal)}
+.hero-project-image{aspect-ratio:16/9;overflow:hidden;background:var(--mint)}
+.hero-project-image img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.hero-project-card:hover .hero-project-image img{transform:scale(1.05)}
+.hero-project-copy{padding:16px 18px 18px}
+.hero-project-copy>span{font-family:"Space Mono",monospace;font-size:.65rem;letter-spacing:.04em;color:var(--teal);font-weight:700}
+.hero-project-copy h3{font-size:1.04rem;line-height:1.3;margin:6px 0 10px}
+.hero-project-copy small{display:flex;align-items:center;justify-content:space-between;color:var(--teal2);font-weight:700;font-size:.82rem}
+.hero-project-copy small b{font-size:1rem}
+@media(max-width:900px){.hero-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-project-card:last-child{grid-column:1/-1;max-width:calc(50% - 10px);width:100%;justify-self:center}}
+@media(max-width:600px){.hero-v2{padding:30px 0 16px}.hero-centered .hero-avatar{width:100px;height:100px}.hero-centered h1{font-size:clamp(2.45rem,11vw,3.7rem)}.hero-centered .lead{font-size:1rem}.hero-centered .cta{gap:9px}.hero-centered .cta .btn{padding:10px 14px;font-size:.86rem}.hero-projects{padding-top:26px}.hero-project-grid{grid-template-columns:1fr;gap:14px}.hero-project-card:last-child{grid-column:auto;max-width:none}.hero-project-copy{padding:14px 16px 16px}}
+
 </style>
 </head>
 <body>
@@ -298,42 +329,47 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <button class="burger" id="burger" aria-label="Menu"><svg class="ic" style="width:28px;height:28px"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
 </div></nav>
 
-<header class="hero" id="top">
-  <svg class="ecg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60h330l16-4 14 4h60l14-50 18 100 18-70 12 20h120l16-4 14 4h60l14-50 18 100 18-70 12 20h260" fill="none" stroke="#7fdccf" stroke-width="2"/></svg>
-  <div class="wrap hero-g">
-    <div>
-      <span class="pill reveal"><span class="dot"></span>Working Student @ Infineon Technologies AG</span>
-      <img class="avatar reveal" style="--d:.05s" src="myPic.webp" alt="Mahmoud Elbadrawy">
-      <h1 class="reveal" style="--d:.1s">Mahmoud<br>Elbadrawy</h1>
-      <div class="role reveal" style="--d:.2s">Embedded Software Engineer<br><span class="typed" id="typed">ARM Cortex-M drivers</span></div>
-      <p class="lead reveal" style="--d:.3s">I write the <b>low-level drivers, BSPs and configuration tools</b> that make microcontrollers usable, and test them with <b>Ceedling, Unity and CMock</b>. Studying Automotive Software Engineering at <b>TU Chemnitz</b>.</p>
-      <div class="cta reveal" style="--d:.4s">
+<header class="hero hero-v2" id="top">
+  <svg class="ecg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60h330l16-4 14 4h60l14-50 18 100 18-70 12 20h120l16-4 14 4h60l14-50 18 100 18-70 12 20h260" fill="none" stroke="#7fdccf" stroke-width="2"/></svg>
+  <div class="wrap">
+    <div class="hero-centered">
+      <img class="avatar hero-avatar reveal" src="myPic.webp" alt="Portrait of Mahmoud Elbadrawy" fetchpriority="high">
+      <span class="pill reveal" style="--d:.05s"><span class="dot"></span>Working Student @ Infineon Technologies AG</span>
+      <h1 class="reveal" style="--d:.1s">Mahmoud Elbadrawy</h1>
+      <div class="role reveal" style="--d:.18s">Embedded Software Engineer<br><span class="typed" id="typed">ARM Cortex-M drivers</span></div>
+      <p class="lead reveal" style="--d:.26s">I write the <b>low-level drivers, BSPs and configuration tools</b> that make microcontrollers usable, and test them with <b>Ceedling, Unity and CMock</b>. Studying Automotive Software Engineering at <b>TU Chemnitz</b>.</p>
+      <div class="cta reveal" style="--d:.34s">
         <button class="btn p" id="mailBtn" onclick="copyMail(this)"><svg class="ic"><use href="#cp"/></svg><span>mahmoud@elbadrawy.de</span></button>
         <a class="btn o" href="https://www.linkedin.com/in/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#li"/></svg>LinkedIn</a>
         <a class="btn o" href="https://www.xing.com/profile/Mahmoud_Elbadrawy" target="_blank" rel="noopener"><svg class="ic f"><use href="#xi"/></svg>XING</a>
         <a class="btn o" href="https://github.com/mahmoud-elbadrawy" target="_blank" rel="noopener"><svg class="ic"><use href="#gh"/></svg>GitHub</a>
       </div>
-      <div class="feat reveal" style="--d:.5s">
-        <div><svg class="ic"><use href="#cpu"/></svg>PDL Drivers</div>
-        <div><svg class="ic"><use href="#wire"/></svg>Protocols</div>
-        <div><svg class="ic"><use href="#chk"/></svg>Unit Testing</div>
-        <div><svg class="ic"><use href="#rep"/></svg>CI / CD</div>
-      </div>
-      <div class="chips reveal" style="--d:.6s"><span>C / C++</span><span>ARM Cortex-M</span><span>Open to relocation in Germany</span></div>
-    </div>
-
-    <div class="stage reveal" style="--d:.3s">
-      <div class="card dash">
-        <div class="dh"><i></i><i></i><i></i><b>Peripheral overview</b></div>
-        <div class="drv"><span>GPIO</span><span>SysTick</span><span>Timers</span><span>UART</span><span>LIN</span></div>
-        <div class="wave"><em class="mono"><span>UART TX</span><span>115200 8N1</span></em>
-          <svg viewBox="0 0 1008 54" preserveAspectRatio="none"><defs><path id="w" d="M0 44h12V10h12v34h12V10h12v34h24V10h12v34h12V10h12v34h12V10h24v34h12V10h12v34h12V10h12v34h24V10h12v34h12V10h12v34h12V10h12v34h12V10h24v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34h12V10h12v34" fill="none" stroke="#0f9b8e" stroke-width="2.4" stroke-linejoin="round"/></defs><use href="#w"/><use href="#w" x="504"/></svg></div>
-        <div class="ci"><span><svg class="ic"><use href="#chk"/></svg>build</span><hr><span><svg class="ic"><use href="#chk"/></svg>unit tests</span><hr><span><svg class="ic"><use href="#chk"/></svg>CI</span></div>
-      </div>
-      <div class="fl c"><svg class="ic"><use href="#wire"/></svg>SPI · I²C · CAN · LIN</div>
+      <div class="chips hero-chips reveal" style="--d:.42s"><span>C / C++</span><span>ARM Cortex-M</span><span>Unit Testing</span><span>CI / CD</span><span>Open to relocation in Germany</span></div>
     </div>
   </div>
 </header>
+
+<div class="wrap hero-projects" aria-label="Featured projects">
+  <div class="hero-projects-heading reveal">
+    <span class="tag">Selected work</span>
+    <h2>A few things I’ve <span>built</span></h2>
+    <p>Embedded systems, firmware tooling and software projects.</p>
+  </div>
+  <div class="hero-project-grid">
+    <a class="hero-project-card reveal" href="https://github.com/mahmoud-elbadrawy/c-project-template" target="_blank" rel="noopener">
+      <div class="hero-project-image"><img src="ci-cd.webp" alt="Embedded C pipeline and CI/CD project preview" loading="lazy"></div>
+      <div class="hero-project-copy"><span>EMBEDDED · CI / CD</span><h3>Containerized Embedded C Pipeline</h3><small>View project <b>↗</b></small></div>
+    </a>
+    <a class="hero-project-card reveal" style="--d:.08s" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank" rel="noopener">
+      <div class="hero-project-image"><img src="smart-parking.webp" alt="Smart parking system prototype" loading="lazy"></div>
+      <div class="hero-project-copy"><span>EMBEDDED · AVR</span><h3>Smart Parking System</h3><small>View project <b>↗</b></small></div>
+    </a>
+    <a class="hero-project-card reveal" style="--d:.16s" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank" rel="noopener">
+      <div class="hero-project-image"><img src="smart-home.webp" alt="Smart home control system prototype" loading="lazy"></div>
+      <div class="hero-project-copy"><span>EMBEDDED · AUTOMATION</span><h3>Smart Home Control System</h3><small>View project <b>↗</b></small></div>
+    </a>
+  </div>
+</div>
 
 <section id="about"><div class="wrap">
   <div class="ab">
