@@ -298,6 +298,30 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 @media(max-width:900px){.hero-project-card{width:215px}.hero-project-group{gap:15px}.hero-v2{padding-top:16px}}
 @media(max-width:600px){.hero-v2{padding:12px 0 4px}.hero-centered .hero-avatar{width:72px;height:72px}.hero-centered h1{font-size:clamp(2rem,9vw,3rem)}.hero-centered .lead{font-size:.9rem;margin:8px auto 11px}.hero-centered .cta{gap:7px}.hero-centered .cta .btn{padding:8px 11px;font-size:.78rem}.hero-centered .hero-chips span{font-size:.66rem;padding:3px 8px}.hero-projects{padding:8px 0 16px}.hero-projects-heading{margin-bottom:8px}.hero-project-card{width:185px}.hero-project-copy{padding:8px 10px 10px}.hero-project-copy h3{font-size:.82rem}.hero-project-group{gap:11px}}
 
+
+/* About section — coordinated with the centered teal/mint hero */
+.about-v2{position:relative;overflow:hidden;background:linear-gradient(180deg,#f6fcfb 0%,#eef9f6 100%)}
+.about-v2:before{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(15,155,142,.10);border-radius:50%;right:-190px;top:30px;pointer-events:none}
+.about-v2 .about-intro{max-width:790px;margin:0 auto 28px;text-align:center;position:relative}
+.about-v2 .about-intro h2{max-width:760px;margin:12px auto 14px;font-size:clamp(2rem,4.3vw,3.25rem);line-height:1.08}
+.about-v2 .about-intro h2 span{background:linear-gradient(100deg,#0a5d57,#14b8a6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-v2 .about-copy{max-width:760px;margin:10px auto;color:var(--mut);font-size:1rem;line-height:1.75}
+.about-v2 .about-copy b{color:var(--ink)}
+.about-focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
+.about-focus-card{position:relative;overflow:hidden;min-height:220px;padding:23px 22px 24px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:21px;box-shadow:0 12px 32px -24px rgba(11,110,102,.45)}
+.about-card-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:var(--mint);color:var(--teal);margin-bottom:18px}
+.about-focus-card>small{font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.08em;color:var(--teal);font-weight:700}
+.about-focus-card h3{font-size:1.12rem;line-height:1.3;margin:8px 0}
+.about-focus-card p{max-width:290px;color:var(--mut);font-size:.9rem;line-height:1.6;position:relative;z-index:1}
+.about-circuit{position:absolute;width:120px;height:90px;right:-12px;bottom:-16px;opacity:.22;background:radial-gradient(circle at 15% 25%,var(--teal) 0 2px,transparent 3px),radial-gradient(circle at 60% 25%,var(--teal) 0 2px,transparent 3px),radial-gradient(circle at 60% 75%,var(--teal) 0 2px,transparent 3px),linear-gradient(90deg,transparent 14%,var(--line) 14% 16%,transparent 16% 58%,var(--line) 58% 60%,transparent 60%),linear-gradient(0deg,transparent 24%,var(--line) 24% 27%,transparent 27% 73%,var(--line) 73% 76%,transparent 76%)}
+.about-circuit:after{content:"";position:absolute;inset:10px;border:1px solid var(--teal);border-left:0;border-bottom:0;border-radius:0 16px 0 0}
+.about-meta{display:flex;justify-content:center;gap:12px 26px;flex-wrap:wrap;margin:24px auto 6px;color:var(--mut);font-size:.83rem}
+.about-meta span{display:flex;align-items:center;gap:7px}
+.about-meta .ic{width:15px;height:15px;color:var(--teal)}
+.about-v2 .stats{margin-top:28px}
+@media(max-width:900px){.about-focus-grid{grid-template-columns:1fr;gap:12px}.about-focus-card{min-height:0;padding:19px}.about-focus-card p{max-width:unset}}
+@media(max-width:600px){.about-v2 .about-intro{margin-bottom:20px}.about-v2 .about-intro h2{font-size:2rem}.about-v2 .about-copy{font-size:.93rem;line-height:1.65}.about-focus-card{padding:17px;border-radius:17px}.about-card-icon{margin-bottom:12px}.about-meta{justify-content:flex-start;gap:10px 16px;font-size:.78rem}.about-v2 .stats{margin-top:20px}}
+
 </style>
 </head>
 <body>
@@ -375,22 +399,34 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   </div>
 </div>
 
-<section id="about"><div class="wrap">
-  <div class="ab">
-    <div class="ph reveal"><div class="frame"><img src="about-desk.webp" alt="Mahmoud Elbadrawy working at his desk" loading="lazy" onerror="this.onerror=null;this.src='about-me.webp'"></div></div>
-    <div>
-      <span class="tag reveal">01 // about</span>
-      <h2 class="reveal">Close to the <span>hardware</span>, careful with the code.</h2>
-      <p class="reveal" style="color:var(--mut)">I’m an embedded software engineer working at <b style="color:var(--ink)">Infineon Technologies</b> as a working student. I develop and extend the <b style="color:var(--ink)">Peripheral Driver Library (PDL)</b> and contribute to the Device Configurator tooling. In my Automotive Software Engineering master’s at TU Chemnitz I work where hardware limits meet software architecture.</p>
-      <p class="quote reveal">I don’t just write code. I build the nervous system of the vehicles of tomorrow.</p>
-      <div class="info">
-        <div class="reveal"><small><svg class="ic"><use href="#case"/></svg>current role</small><b>Working Student, Embedded Software</b><span>Infineon Technologies AG, Dresden</span></div>
-        <div class="reveal" style="--d:.08s"><small><svg class="ic"><use href="#cap"/></svg>studying</small><b>M.Sc. Automotive Software Eng.</b><span>TU Chemnitz</span></div>
-        <div class="reveal" style="--d:.16s"><small><svg class="ic"><use href="#pin"/></svg>location</small><b>Chemnitz, Germany</b><span>Open to relocation</span></div>
-        <div class="reveal" style="--d:.24s"><small><svg class="ic"><use href="#lang"/></svg>languages</small><b>Arabic · English · German</b><span>Native · C1 · A2 (learning)</span></div>
-      </div>
-    </div>
+<section id="about" class="about-v2"><div class="wrap">
+  <div class="about-intro">
+    <span class="tag reveal">01 // about me</span>
+    <h2 class="reveal">Building software <span>close to the hardware.</span></h2>
+    <p class="about-copy reveal">I’m an Embedded Software Engineer at <b>Infineon Technologies</b>, focused on ARM Cortex-M firmware, low-level drivers, Board Support Packages and configuration tools. I care about making embedded software reliable, maintainable and thoroughly tested.</p>
+    <p class="about-copy reveal">Alongside my work, I’m pursuing an M.Sc. in <b>Automotive Software Engineering</b> at TU Chemnitz, exploring the intersection of hardware constraints and software architecture.</p>
   </div>
+  <div class="about-focus-grid">
+    <article class="about-focus-card reveal">
+      <div class="about-card-icon"><svg class="ic"><use href="#cpu"/></svg></div>
+      <small>01 / WHAT I DO</small><h3>Firmware &amp; Drivers</h3>
+      <p>Low-level drivers, ARM Cortex-M, peripheral libraries, BSPs and developer tooling.</p>
+      <div class="about-circuit circuit-one" aria-hidden="true"></div>
+    </article>
+    <article class="about-focus-card reveal" style="--d:.08s">
+      <div class="about-card-icon"><svg class="ic"><use href="#chk"/></svg></div>
+      <small>02 / HOW I WORK</small><h3>Tested, maintainable code</h3>
+      <p>Clean interfaces, unit testing with Ceedling, Unity and CMock, and automated CI workflows.</p>
+      <div class="about-circuit circuit-two" aria-hidden="true"></div>
+    </article>
+    <article class="about-focus-card reveal" style="--d:.16s">
+      <div class="about-card-icon"><svg class="ic"><use href="#cap"/></svg></div>
+      <small>03 / WHAT I’M LEARNING</small><h3>Automotive software</h3>
+      <p>M.Sc. studies at TU Chemnitz, with a growing focus on dependable software for automotive systems.</p>
+      <div class="about-circuit circuit-three" aria-hidden="true"></div>
+    </article>
+  </div>
+  <div class="about-meta reveal"><span><svg class="ic"><use href="#pin"/></svg> Chemnitz, Germany</span><span><svg class="ic"><use href="#case"/></svg> Infineon Technologies AG</span><span><svg class="ic"><use href="#lang"/></svg> Arabic · English · German</span></div>
   <div class="stats">
     <div class="stat reveal" style="--d:.1s"><b data-n="1">0</b><span>Books</span></div>
     <div class="stat reveal"><b data-n="6">0</b><span>Projects</span></div>
