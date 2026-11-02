@@ -321,6 +321,19 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 @media(max-width:900px){.about-v2 .about-layout{grid-template-columns:1fr;gap:28px}.about-v2 .about-intro{max-width:760px}.about-focus-grid{gap:10px}}
 @media(max-width:600px){.about-v2 .about-intro h2{font-size:clamp(1.9rem,8vw,2.4rem)}.about-v2 .about-copy{font-size:.94rem;line-height:1.65}.about-v2 .about-copy.lead-copy{font-size:1rem}.about-focus-card{padding:16px;border-radius:15px}.about-focus-card h3{font-size:1rem}.about-meta{gap:10px 16px;font-size:.78rem}.about-v2 .stats{margin-top:20px}}
 
+
+/* Consistent section eyebrow inspired by the Tech Stack visual */
+.section-index{display:inline-flex;align-items:center;gap:14px;margin:0 0 18px;font-family:"Space Mono",monospace;font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--teal2);background:none;padding:0;border-radius:0}
+.section-index i{display:block;width:36px;height:2px;background:var(--teal);flex:none}
+.about-v2 .about-layout{margin-bottom:0}
+.sg{gap:18px}
+.sk{padding:20px 22px;border-radius:22px;box-shadow:0 8px 24px -18px rgba(11,110,102,.32)}
+.sk .ico{width:52px;height:52px;border-radius:17px;margin:0;flex:none}
+.sk h3{font-size:1.08rem;margin:0}
+.sk>div:first-child{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.sk div.t span{background:#eaf7f4;border:1px solid transparent;border-radius:999px;padding:5px 12px;font-size:.78rem}
+@media(max-width:600px){.section-index{font-size:.74rem;gap:10px}.section-index i{width:28px}.sk{padding:18px}}
+
 </style>
 </head>
 <body>
@@ -401,7 +414,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 <section id="about" class="about-v2"><div class="wrap">
   <div class="about-layout">
     <div class="about-intro">
-      <span class="tag reveal">01 // about me</span>
+      <span class="section-index reveal"><i></i> ABOUT ME</span>
       <h2 class="reveal">Building software close to the hardware.</h2>
       <p class="about-copy lead-copy reveal">I’m an embedded software engineer focused on making the layers closest to the hardware work beautifully.</p>
       <p class="about-copy reveal">From ARM Cortex-M firmware and low-level drivers to BSPs and configuration tools, I care about code that’s reliable, tested, and easy to maintain.</p>
@@ -419,16 +432,10 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
     </div>
   </div>
   <div class="about-meta reveal"><span><svg class="ic"><use href="#pin"/></svg> Chemnitz, Germany</span><span><svg class="ic"><use href="#case"/></svg> Infineon Technologies AG</span><span><svg class="ic"><use href="#lang"/></svg> Arabic · English · German</span></div>
-  <div class="stats">
-    <div class="stat reveal" style="--d:.1s"><b data-n="1">0</b><span>Books</span></div>
-    <div class="stat reveal"><b data-n="6">0</b><span>Projects</span></div>
-    <div class="stat reveal" style="--d:.2s"><b data-n="4">0</b><span>Certificates</span></div>
-    <div class="stat reveal" style="--d:.3s"><b data-n="3">0</b><span>Languages</span></div>
-  </div>
 </div></section>
 
 <section id="skills"><div class="wrap">
-  <span class="tag reveal">02 // stack</span><h2 class="reveal">Tech <span>stack</span></h2>
+  <span class="section-index reveal"><i></i> TECH STACK</span><h2 class="reveal">Tech <span>stack</span></h2>
   <p class="sub reveal">What I work with day to day, from registers to CI pipelines.</p>
   <div class="sg">
     <div class="sk reveal"><div class="ico"><svg class="ic"><use href="#code"/></svg></div><h3>Languages</h3><div class="t"><span>C</span><span>C++</span><span>Python</span><span>VHDL</span><span>Tcl</span></div></div>
@@ -441,7 +448,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </div></section>
 
 <section id="experience"><div class="wrap">
-  <span class="tag reveal">03 // experience</span><h2 class="reveal">Where I’ve <span>worked</span></h2>
+  <span class="section-index reveal"><i></i> EXPERIENCE</span><h2 class="reveal">Where I’ve <span>worked</span></h2>
   <p class="sub reveal">Two working-student roles, one in embedded software and one in business software.</p>
   <div class="tl">
     <div class="card job reveal"><div class="logo2 i">IFX</div><div>
@@ -460,7 +467,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <span class="tag reveal">04 // projects</span><h2 class="reveal">Things I’ve <span>built</span></h2>
+  <span class="section-index reveal"><i></i> PROJECTS</span><h2 class="reveal">Things I’ve <span>built</span></h2>
   <p class="sub reveal">Hover a card. Every project links to its source code on GitHub.</p>
   <div class="flt reveal" id="flt"><button class="on" data-f="all">All</button><button data-f="emb">Embedded</button><button data-f="sw">Software</button><button data-f="hdl">HDL &amp; Scripting</button></div>
   <div class="pg">
@@ -488,7 +495,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="bk card reveal">
     <div class="bkimg"><img src="unit-testing-book.webp" alt="Cover of the book Unit Testing for Embedded Systems on a desk with a laptop and development board" loading="lazy"></div>
     <div class="bkt">
-      <span class="tag">05 // book</span>
+      <span class="section-index"><i></i> BOOK</span>
       <h2>Unit Testing for <span>Embedded Systems</span></h2>
       <p>A beginner’s step-by-step guide to testing embedded C without hardware. I wrote it for engineers who are new to unit testing and want to start without a lab full of boards.</p>
       <div class="cta"><button class="btn p" id="bkOpen"><svg class="ic"><use href="#mail"/></svg>Ask me about the book</button></div>
@@ -497,7 +504,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </div></section>
 
 <section id="education"><div class="wrap">
-  <span class="tag reveal">06 // education</span><h2 class="reveal">Learning <span>path</span></h2>
+  <span class="section-index reveal"><i></i> EDUCATION</span><h2 class="reveal">Learning <span>path</span></h2>
   <p class="sub reveal">University degrees and hands-on embedded training.</p>
   <div class="eg">
     <div class="card ed reveal"><div class="ico"><svg class="ic"><use href="#cap"/></svg></div><div><small>M.Sc. · Oct 2024 → Mar 2028 (expected)</small><h3>Automotive Software Engineering</h3><p>TU Chemnitz, Germany</p></div></div>
@@ -512,7 +519,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </div></section>
 
 <section id="connect"><div class="wrap"><div class="cn reveal">
-  <span class="tag">07 // open to opportunities</span>
+  <span class="section-index"><i></i> OPEN TO OPPORTUNITIES</span>
   <h2>Let’s <span>work together</span></h2>
   <p>I’m looking for junior embedded software roles in embedded systems, automotive software and IoT, anywhere in Germany. The quickest way to reach me is email or LinkedIn.</p>
   <div class="cta">
