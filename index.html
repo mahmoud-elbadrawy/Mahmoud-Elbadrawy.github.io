@@ -182,9 +182,12 @@ h2 span{color:var(--teal)}
 .tags span{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--mint);color:var(--teal2)}
 .go{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.88rem;color:var(--teal);margin-top:4px}
 .go .ic{width:16px;height:16px}
-.project-note{grid-column:3;align-self:stretch;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;border-radius:22px;background:linear-gradient(145deg,#e8f7f4,#f3fbf9);border:1px solid var(--line);color:var(--teal2)}
-.project-note p{max-width:210px;font-size:1.08rem;font-weight:600;line-height:1.55}
-.project-note span{display:block;margin-top:12px;font:400 .65rem "Space Mono",monospace;letter-spacing:1.1px;color:var(--mut)}
+.project-note{grid-column:3;align-self:stretch;position:relative;isolation:isolate;display:flex;align-items:flex-start;justify-content:flex-start;min-height:100%;overflow:hidden;padding:30px 28px;border:1px solid #d5efea;border-radius:22px;background:linear-gradient(135deg,#effbf9 0%,#e4f7f3 58%,#d9f3ee 100%);color:var(--ink)}
+.project-note:before{content:"";position:absolute;z-index:-1;width:78%;height:130%;right:-22%;bottom:-62%;border-radius:48% 0 0 0;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(139,224,211,.24));transform:rotate(-14deg)}
+.project-note:after{content:"";position:absolute;z-index:-1;width:65%;height:90%;right:-24%;bottom:-46%;border-radius:50% 0 0 0;background:rgba(255,255,255,.18);transform:rotate(-14deg)}
+.project-note .note-line{display:block;width:36px;height:2px;margin:0 0 14px;background:var(--teal)}
+.project-note p{max-width:230px;font-size:1.08rem;font-weight:800;line-height:1.35;letter-spacing:-.02em}
+.project-note .note-laptop{position:absolute;right:22px;bottom:18px;width:76px;height:54px;color:var(--teal);stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* project art animations */
 .n{fill:#fff;stroke:var(--teal);stroke-width:2}
 .ln{stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1s linear infinite;fill:none}
@@ -551,7 +554,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="projects-head reveal">
     <div class="projects-copy">
       <span class="section-index"><i></i> SELECTED WORK</span>
-      <h2>Projects</h2>
+      <h2>Selected <span>Projects.</span></h2>
       <p class="sub">A collection of projects exploring embedded systems, software development and digital design.</p>
     </div>
     <div class="flt" id="flt" aria-label="Filter projects">
@@ -580,7 +583,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
     <article class="pj reveal" data-c="hdl"><div class="art"><img src="tcl.webp" alt="Tcl scripting terminal and code editor on a desktop monitor" loading="lazy"></div>
       <div class="pb"><h3>Tcl Scripting &amp; Notes</h3><p>A collection of Tcl scripts and learning notes covering scripting fundamentals, task automation and tool configuration for electronic design automation workflows.</p><div class="tags"><span>Tcl</span><span>Automation</span><span>Scripting</span><span>EDA Tools</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <aside class="project-note" aria-label="A note about my approach"><div><p>Built with curiosity and a passion for learning.</p><span>ALWAYS EXPLORING</span></div></aside>
+    <aside class="project-note" aria-label="A note about my approach"><div><i class="note-line" aria-hidden="true"></i><p>Built with curiosity and a passion for learning.</p></div><svg class="note-laptop" viewBox="0 0 76 54" aria-hidden="true"><rect x="15" y="4" width="46" height="34" rx="2"></rect><path d="M11 42h54l6 6H5z"></path><path d="m31 17-5 5 5 5m14-10 5 5-5 5m-5-12-4 14"></path></svg></aside>
   </div>
 </div></section>
 
