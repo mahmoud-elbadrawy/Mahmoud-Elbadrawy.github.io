@@ -187,7 +187,13 @@ h2 span{color:var(--teal)}
 .project-note:after{content:"";position:absolute;z-index:-1;width:65%;height:90%;right:-24%;bottom:-46%;border-radius:50% 0 0 0;background:rgba(255,255,255,.18);transform:rotate(-14deg)}
 .project-note .note-line{display:block;width:36px;height:2px;margin:0 0 14px;background:var(--teal)}
 .project-note p{max-width:230px;font-size:1.08rem;font-weight:800;line-height:1.35;letter-spacing:-.02em}
-.project-note .note-laptop{position:absolute;right:22px;bottom:18px;width:76px;height:54px;color:var(--teal);stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.project-note .note-art{position:absolute;right:16px;bottom:13px;width:126px;height:100px;color:var(--teal);overflow:visible}
+.project-note .note-art .screen{fill:rgba(255,255,255,.58);stroke:currentColor;stroke-width:2.1;stroke-linejoin:round}
+.project-note .note-art .base{fill:rgba(15,155,142,.12);stroke:currentColor;stroke-width:2.1;stroke-linejoin:round}
+.project-note .note-art .code{fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.project-note .note-art .spark{fill:currentColor;opacity:.75}
+.project-note .note-art .orbit{fill:none;stroke:currentColor;stroke-width:1.2;stroke-dasharray:3 5;opacity:.45}
+.project-note .note-art .mini-card{fill:rgba(255,255,255,.72);stroke:#9bded4;stroke-width:1.2}
 /* project art animations */
 .n{fill:#fff;stroke:var(--teal);stroke-width:2}
 .ln{stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1s linear infinite;fill:none}
@@ -583,7 +589,18 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
     <article class="pj reveal" data-c="hdl"><div class="art"><img src="tcl.webp" alt="Tcl scripting terminal and code editor on a desktop monitor" loading="lazy"></div>
       <div class="pb"><h3>Tcl Scripting &amp; Notes</h3><p>A collection of Tcl scripts and learning notes covering scripting fundamentals, task automation and tool configuration for electronic design automation workflows.</p><div class="tags"><span>Tcl</span><span>Automation</span><span>Scripting</span><span>EDA Tools</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <aside class="project-note" aria-label="A note about my approach"><div><i class="note-line" aria-hidden="true"></i><p>Built with curiosity and a passion for learning.</p></div><svg class="note-laptop" viewBox="0 0 76 54" aria-hidden="true"><rect x="15" y="4" width="46" height="34" rx="2"></rect><path d="M11 42h54l6 6H5z"></path><path d="m31 17-5 5 5 5m14-10 5 5-5 5m-5-12-4 14"></path></svg></aside>
+    <aside class="project-note" aria-label="A note about my approach"><div><i class="note-line" aria-hidden="true"></i><p>Built with curiosity and a passion for learning.</p></div><svg class="note-art" viewBox="0 0 126 100" aria-hidden="true">
+  <path class="orbit" d="M14 69c-7-23 8-48 34-55 24-7 51 4 63 26"/>
+  <rect class="mini-card" x="5" y="16" width="28" height="22" rx="5"/>
+  <path class="code" d="m15 23-4 4 4 4m8-8 4 4-4 4"/>
+  <rect class="screen" x="39" y="25" width="70" height="49" rx="5"/>
+  <path class="code" d="m63 43-7 7 7 7m22-14 7 7-7 7m-7-18-5 23"/>
+  <path class="base" d="M33 78h82l7 7H26z"/>
+  <path class="code" d="M59 82h29"/>
+  <path class="spark" d="m108 10 2.2 5.8L116 18l-5.8 2.2L108 26l-2.2-5.8L100 18l5.8-2.2z"/>
+  <circle class="spark" cx="24" cy="58" r="2.5"/>
+  <circle class="spark" cx="117" cy="49" r="2"/>
+</svg></aside>
   </div>
 </div></section>
 
