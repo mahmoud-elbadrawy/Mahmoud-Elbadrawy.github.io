@@ -182,9 +182,18 @@ h2 span{color:var(--teal)}
 .tags span{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--mint);color:var(--teal2)}
 .go{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.88rem;color:var(--teal);margin-top:4px}
 .go .ic{width:16px;height:16px}
-.project-note{grid-column:3;align-self:stretch;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;border-radius:22px;background:linear-gradient(145deg,#e8f7f4,#f3fbf9);border:1px solid var(--line);color:var(--teal2)}
-.project-note p{max-width:210px;font-size:1.08rem;font-weight:600;line-height:1.55}
-.project-note span{display:block;margin-top:12px;font:400 .65rem "Space Mono",monospace;letter-spacing:1.1px;color:var(--mut)}
+.project-note{grid-column:3;align-self:stretch;position:relative;isolation:isolate;display:flex;align-items:flex-start;justify-content:flex-start;min-height:100%;overflow:hidden;padding:30px 28px;border:1px solid #d5efea;border-radius:22px;background:linear-gradient(135deg,#effbf9 0%,#e4f7f3 58%,#d9f3ee 100%);color:var(--ink)}
+.project-note:before{content:"";position:absolute;z-index:-1;width:78%;height:130%;right:-22%;bottom:-62%;border-radius:48% 0 0 0;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(139,224,211,.24));transform:rotate(-14deg)}
+.project-note:after{content:"";position:absolute;z-index:-1;width:65%;height:90%;right:-24%;bottom:-46%;border-radius:50% 0 0 0;background:rgba(255,255,255,.18);transform:rotate(-14deg)}
+.project-note .note-line{display:block;width:36px;height:2px;margin:0 0 14px;background:var(--teal)}
+.project-note p{max-width:230px;font-size:1.08rem;font-weight:800;line-height:1.35;letter-spacing:-.02em}
+.project-note .note-art{position:absolute;right:16px;bottom:13px;width:126px;height:100px;color:var(--teal);overflow:visible}
+.project-note .note-art .screen{fill:rgba(255,255,255,.58);stroke:currentColor;stroke-width:2.1;stroke-linejoin:round}
+.project-note .note-art .base{fill:rgba(15,155,142,.12);stroke:currentColor;stroke-width:2.1;stroke-linejoin:round}
+.project-note .note-art .code{fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.project-note .note-art .spark{fill:currentColor;opacity:.75}
+.project-note .note-art .orbit{fill:none;stroke:currentColor;stroke-width:1.2;stroke-dasharray:3 5;opacity:.45}
+.project-note .note-art .mini-card{fill:rgba(255,255,255,.72);stroke:#9bded4;stroke-width:1.2}
 /* project art animations */
 .n{fill:#fff;stroke:var(--teal);stroke-width:2}
 .ln{stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1s linear infinite;fill:none}
@@ -467,7 +476,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="about-layout">
     <div class="about-intro">
       <span class="section-index reveal"><i></i> ABOUT ME</span>
-      <h2 class="reveal">Building software close to the hardware.</h2>
+      <h2 class="reveal">Building software close to the <span>hardware.</span></h2>
       <p class="about-copy lead-copy reveal">I’m an embedded software engineer focused on making the layers closest to the hardware work beautifully.</p>
       <p class="about-copy reveal">From ARM Cortex-M firmware and low-level drivers to BSPs and configuration tools, I care about code that’s reliable, tested, and easy to maintain.</p>
     </div>
@@ -551,7 +560,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="projects-head reveal">
     <div class="projects-copy">
       <span class="section-index"><i></i> SELECTED WORK</span>
-      <h2>Projects</h2>
+      <h2>Selected <span>Projects.</span></h2>
       <p class="sub">A collection of projects exploring embedded systems, software development and digital design.</p>
     </div>
     <div class="flt" id="flt" aria-label="Filter projects">
@@ -580,7 +589,18 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
     <article class="pj reveal" data-c="hdl"><div class="art"><img src="tcl.webp" alt="Tcl scripting terminal and code editor on a desktop monitor" loading="lazy"></div>
       <div class="pb"><h3>Tcl Scripting &amp; Notes</h3><p>A collection of Tcl scripts and learning notes covering scripting fundamentals, task automation and tool configuration for electronic design automation workflows.</p><div class="tags"><span>Tcl</span><span>Automation</span><span>Scripting</span><span>EDA Tools</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <aside class="project-note" aria-label="A note about my approach"><div><p>Built with curiosity and a passion for learning.</p><span>ALWAYS EXPLORING</span></div></aside>
+    <aside class="project-note" aria-label="A note about my approach"><div><i class="note-line" aria-hidden="true"></i><p>Built with curiosity and a passion for learning.</p></div><svg class="note-art" viewBox="0 0 126 100" aria-hidden="true">
+  <path class="orbit" d="M14 69c-7-23 8-48 34-55 24-7 51 4 63 26"/>
+  <rect class="mini-card" x="5" y="16" width="28" height="22" rx="5"/>
+  <path class="code" d="m15 23-4 4 4 4m8-8 4 4-4 4"/>
+  <rect class="screen" x="39" y="25" width="70" height="49" rx="5"/>
+  <path class="code" d="m63 43-7 7 7 7m22-14 7 7-7 7m-7-18-5 23"/>
+  <path class="base" d="M33 78h82l7 7H26z"/>
+  <path class="code" d="M59 82h29"/>
+  <path class="spark" d="m108 10 2.2 5.8L116 18l-5.8 2.2L108 26l-2.2-5.8L100 18l5.8-2.2z"/>
+  <circle class="spark" cx="24" cy="58" r="2.5"/>
+  <circle class="spark" cx="117" cy="49" r="2"/>
+</svg></aside>
   </div>
 </div></section>
 
@@ -679,13 +699,22 @@ addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=
 // menu
 $('#burger').onclick=()=>$('#links').classList.toggle('open');
 lk.forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
-// project filter
-$('#flt button').forEach(b=>b.onclick=()=>{
- $('#flt button').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
- b.classList.add('on');b.setAttribute('aria-pressed','true');
- $('.pj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f));
- const note=$('.project-note');if(note)note.hidden=b.dataset.f!=='all';
-});
+// project filters
+const projectFilterButtons=$('#flt button');
+const projectCards=$('#projects .pj');
+const projectNote=$('#projects .project-note');
+projectFilterButtons.forEach(b=>b.addEventListener('click',()=>{
+ const category=b.dataset.f;
+ projectFilterButtons.forEach(x=>{
+  const active=x===b;
+  x.classList.toggle('on',active);
+  x.setAttribute('aria-pressed',String(active));
+ });
+ projectCards.forEach(card=>{
+  card.classList.toggle('hide',category!=='all'&&card.dataset.c!==category);
+ });
+ if(projectNote)projectNote.hidden=category!=='all';
+}));
 // book questions: works without a mail client; optional direct send via Web3Forms
 (()=>{const TO='mahmoud@elbadrawy.de',KEY='60059188-b9b3-444b-917f-ad54491e612b' /* Web3Forms access key */,SUBJ='Question about your book: Unit Testing for Embedded Systems';
  const m=$('#bkModal'),show=id=>['bk1','bk2','bk3'].forEach(x=>$('#'+x).hidden=x!==id),
