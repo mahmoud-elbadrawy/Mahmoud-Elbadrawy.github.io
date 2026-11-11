@@ -157,14 +157,9 @@ h2 span{color:var(--teal)}
 .projects-copy .section-index{margin-bottom:12px}
 .projects-copy h2{margin-bottom:12px}
 .projects-copy .sub{margin:0;max-width:560px}
-.flt{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin:0 0 4px auto;max-width:520px}
-.flt button{font-family:inherit;font-weight:600;font-size:.84rem;padding:8px 17px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
-.flt button.on,.flt button:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .pg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
 .pj{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:box-shadow .25s ease;transform:none}
 .pj:hover{box-shadow:var(--sh)}
-.pj.hide{display:none}
-.pj[hidden],.project-note[hidden]{display:none!important}
 .pj-featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;min-height:330px}
 .pj-featured .art{grid-column:2;grid-row:1;border:0;border-left:1px solid var(--line);aspect-ratio:auto;min-height:100%;order:2}
 .pj-featured .art img{height:100%;min-height:330px;object-fit:cover;object-position:center}
@@ -564,12 +559,6 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
       <h2>Selected <span>Projects.</span></h2>
       <p class="sub">A collection of projects exploring embedded systems, software development and digital design.</p>
     </div>
-    <div class="flt" id="flt" aria-label="Filter projects">
-      <button class="on" data-f="all" aria-pressed="true">All</button>
-      <button data-f="emb" aria-pressed="false">Embedded</button>
-      <button data-f="sw" aria-pressed="false">Software</button>
-      <button data-f="hdl" aria-pressed="false">HDL &amp; Scripting</button>
-    </div>
   </div>
   <div class="pg">
     <article class="pj pj-featured reveal" data-c="emb"><div class="art"><img src="ci-cd.webp" alt="Embedded C development workspace with laptop and ARM development board" loading="lazy"></div>
@@ -700,29 +689,6 @@ addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=
 // menu
 $('#burger').onclick=()=>$('#links').classList.toggle('open');
 lk.forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
-// project filters
-(()=>{
- const filter=$('#flt');
- if(!filter)return;
- const cards=$('#projects .pj[data-c]');
- const note=$('#projects .project-note');
- filter.addEventListener('click',event=>{
-  const button=event.target.closest('button[data-f]');
-  if(!button||!filter.contains(button))return;
-  const category=button.dataset.f;
-  $('#flt button[data-f]').forEach(item=>{
-   const active=item===button;
-   item.classList.toggle('on',active);
-   item.setAttribute('aria-pressed',String(active));
-  });
-  cards.forEach(card=>{
-   const visible=category==='all'||card.dataset.c===category;
-   card.hidden=!visible;
-   card.classList.toggle('hide',!visible);
-  });
-  if(note)note.hidden=category!=='all';
- });
-})();
 // book questions: works without a mail client; optional direct send via Web3Forms
 (()=>{const TO='mahmoud@elbadrawy.de',KEY='60059188-b9b3-444b-917f-ad54491e612b' /* Web3Forms access key */,SUBJ='Question about your book: Unit Testing for Embedded Systems';
  const m=$('#bkModal'),show=id=>['bk1','bk2','bk3'].forEach(x=>$('#'+x).hidden=x!==id),
