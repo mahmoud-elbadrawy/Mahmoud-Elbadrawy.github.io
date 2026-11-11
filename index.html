@@ -152,24 +152,28 @@ h2 span{color:var(--teal)}
 .experience-editorial .experience-footer span:nth-child(even){color:var(--teal)}
 
 /* projects */
-.flt{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.flt button{font-family:inherit;font-weight:600;font-size:.88rem;padding:9px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;transition:.25s}
+.projects-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:34px}
+.projects-copy{max-width:600px}
+.projects-copy .section-index{margin-bottom:12px}
+.projects-copy h2{margin-bottom:12px}
+.projects-copy .sub{margin:0;max-width:560px}
+.flt{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin:0 0 4px auto;max-width:520px}
+.flt button{font-family:inherit;font-weight:600;font-size:.84rem;padding:8px 17px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
 .flt button.on,.flt button:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .pg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
-.pj{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s ease,box-shadow .3s,opacity .4s;transform-style:preserve-3d}
-.pj:hover{box-shadow:var(--sh2)}
+.pj{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:box-shadow .25s ease;transform:none}
+.pj:hover{box-shadow:var(--sh)}
 .pj.hide{display:none}
-.pj-featured{grid-column:1/-1;display:grid;grid-template-columns:1.02fr .98fr;min-height:330px}
+.pj-featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;min-height:330px}
 .pj-featured .art{grid-column:2;grid-row:1;border:0;border-left:1px solid var(--line);aspect-ratio:auto;min-height:100%;order:2}
-.pj-featured .art img{height:100%;min-height:330px;object-fit:cover}
+.pj-featured .art img{height:100%;min-height:330px;object-fit:cover;object-position:center}
 .pj-featured .pb{grid-column:1;grid-row:1;justify-content:center;padding:clamp(26px,4vw,48px);gap:15px}
 .pj-featured .pb h3{font-size:clamp(1.45rem,2.5vw,2rem);letter-spacing:-.03em}
-.pj-featured .pb p{font-size:.98rem;line-height:1.8;max-width:570px}
+.pj-featured .pb p{font-size:.96rem;line-height:1.8;max-width:570px}
 .pj-featured .tags{gap:7px}
 .pj-featured .tags span{padding:5px 11px}
 .art{background:#e5f8f4;border-bottom:1px solid var(--line);overflow:hidden;aspect-ratio:16/9}
-.art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
-.pj:hover .art img{transform:scale(1.04)}
+.art img{width:100%;height:100%;object-fit:cover;display:block}
 .pb{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
 .pb h3{font-size:1.12rem;line-height:1.3;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .pb h3 em{font-style:normal;font-size:.65rem;font-weight:700;padding:3px 9px;border-radius:999px;background:#fef3c7;color:#92400e;white-space:nowrap;letter-spacing:.04em}
@@ -177,7 +181,10 @@ h2 span{color:var(--teal)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font-size:.7rem;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--mint);color:var(--teal2)}
 .go{display:inline-flex;gap:6px;align-items:center;font-weight:600;font-size:.88rem;color:var(--teal);margin-top:4px}
-.go .ic{width:16px;height:16px;transition:.25s}.go:hover .ic{transform:translate(4px,-4px)}
+.go .ic{width:16px;height:16px}
+.project-note{grid-column:3;align-self:stretch;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;border-radius:22px;background:linear-gradient(145deg,#e8f7f4,#f3fbf9);border:1px solid var(--line);color:var(--teal2)}
+.project-note p{max-width:210px;font-size:1.08rem;font-weight:600;line-height:1.55}
+.project-note span{display:block;margin-top:12px;font:400 .65rem "Space Mono",monospace;letter-spacing:1.1px;color:var(--mut)}
 /* project art animations */
 .n{fill:#fff;stroke:var(--teal);stroke-width:2}
 .ln{stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;animation:dash 1s linear infinite;fill:none}
@@ -265,9 +272,12 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
  .hero-g,.ab{grid-template-columns:1fr}
  .stage{height:420px;max-width:560px;margin:0 auto;width:100%}
  .sg,.pg{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .projects-head{align-items:flex-start;flex-direction:column;gap:22px}
+ .flt{justify-content:flex-start;margin:0}
  .pj-featured{grid-template-columns:1fr 1fr}
  .pj-featured .pb{padding:28px}
  .pj-featured .art img{min-height:100%}
+ .project-note{grid-column:1/-1;min-height:150px}
  .stats,.cert{grid-template-columns:repeat(2,1fr)}
  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;padding:14px 24px;border-bottom:1px solid var(--line)}
  .links.open{display:flex}.burger{display:block}.nav .btn{display:none}
@@ -275,6 +285,9 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 }
 @media(max-width:620px){
  .sg,.pg{grid-template-columns:1fr}
+ .projects-head{gap:18px}
+ .flt{gap:7px}
+ .flt button{font-size:.78rem;padding:7px 12px}
  .pj-featured{grid-template-columns:1fr}
  .pj-featured .art{grid-column:1;grid-row:1;min-height:0;aspect-ratio:16/9;border-left:0;border-bottom:1px solid var(--line)}
  .pj-featured .art img{min-height:0}
@@ -535,27 +548,39 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <span class="section-index reveal"><i></i> PROJECTS</span><h2 class="reveal">Things I’ve <span>built</span></h2>
-  <p class="sub reveal">A selection of embedded, software and digital-design projects — from low-level firmware to practical tools and learning resources.</p>
-  <div class="flt reveal" id="flt"><button class="on" data-f="all">All</button><button data-f="emb">Embedded</button><button data-f="sw">Software</button><button data-f="hdl">HDL &amp; Scripting</button></div>
+  <div class="projects-head reveal">
+    <div class="projects-copy">
+      <span class="section-index"><i></i> SELECTED WORK</span>
+      <h2>Projects</h2>
+      <p class="sub">A collection of projects exploring embedded systems, software development and digital design.</p>
+    </div>
+    <div class="flt" id="flt" aria-label="Filter projects">
+      <button class="on" data-f="all" aria-pressed="true">All</button>
+      <button data-f="emb" aria-pressed="false">Embedded</button>
+      <button data-f="sw" aria-pressed="false">Software</button>
+      <button data-f="hdl" aria-pressed="false">HDL &amp; Scripting</button>
+    </div>
+  </div>
   <div class="pg">
-    <article class="pj pj-featured reveal" data-c="emb"><div class="art"><img src="ci-cd.webp" alt="Laptop with code editor next to an ARM development board" loading="lazy"></div>
-      <div class="pb"><h3>Embedded C Project Template &amp; CI/CD <em>ON GOING</em></h3><p>A modular embedded C project template with a CMake-based build system and automated unit testing using Ceedling, Unity and CMock. A containerized toolchain and GitHub Actions provide consistent builds and test execution on every commit.</p><div class="tags"><span>C</span><span>CMake</span><span>Ceedling</span><span>Unity</span><span>CMock</span><span>GitHub Actions</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/c-project-template" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+    <article class="pj pj-featured reveal" data-c="emb"><div class="art"><img src="ci-cd.webp" alt="Embedded C development workspace with laptop and ARM development board" loading="lazy"></div>
+      <div class="pb"><h3>Embedded C Project Template &amp; CI/CD <em>ON GOING</em></h3><p>A reusable embedded C project template with a CMake-based build system and host-based unit testing using Ceedling, Unity and CMock. GitHub Actions automates builds and tests on every commit.</p><div class="tags"><span>C</span><span>CMake</span><span>Ceedling</span><span>Unity</span><span>CMock</span><span>GitHub Actions</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/c-project-template" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <article class="pj reveal" data-c="emb" style="--d:.08s"><div class="art"><img src="smart-parking.webp" alt="Tabletop smart parking prototype with toy cars, gate and breadboard" loading="lazy"></div>
+    <article class="pj reveal" data-c="emb"><div class="art"><img src="smart-parking.webp" alt="Tabletop smart parking prototype with toy cars, gate and breadboard" loading="lazy"></div>
       <div class="pb"><h3>Smart Parking System</h3><p>An AVR-based parking management system using sensor inputs to detect parking availability and control automated gate access. Built around the ATmega32 microcontroller.</p><div class="tags"><span>C</span><span>ATmega32</span><span>AVR</span><span>GPIO</span><span>Sensors</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/smart_parking" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <article class="pj reveal" data-c="emb" style="--d:.16s"><div class="art"><img src="smart-home.webp" alt="Tabletop smart home prototype with model house, sensors, LCD and keypad" loading="lazy"></div>
+    <article class="pj reveal" data-c="emb"><div class="art"><img src="smart-home.webp" alt="Tabletop smart home prototype with model house, sensors, LCD and keypad" loading="lazy"></div>
       <div class="pb"><h3>Smart Home Control System</h3><p>An ATmega32-based home automation system integrating temperature and light sensing, LCD feedback, keypad input and servo control for basic monitoring and device control.</p><div class="tags"><span>C</span><span>ATmega32</span><span>LM35 / LDR</span><span>LCD</span><span>PWM</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/smart_home" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
     <article class="pj reveal" data-c="sw"><div class="art"><img src="tips-dashboard.webp" alt="Monitor showing a tips analytics dashboard" loading="lazy"></div>
       <div class="pb"><h3>Tips Dashboard</h3><p>An interactive dashboard for exploring restaurant tipping patterns through data analysis, statistical summaries and visualizations, built with Python, Streamlit and Pandas.</p><div class="tags"><span>Python</span><span>Streamlit</span><span>Pandas</span><span>Data Visualization</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/tips_dashboard" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <article class="pj reveal" data-c="hdl" style="--d:.08s"><div class="art"><img src="vhdl.webp" alt="FPGA development board with waveform simulation on a monitor" loading="lazy"></div>
+    <article class="pj reveal" data-c="hdl"><div class="art"><img src="vhdl.webp" alt="FPGA development board with waveform simulation on a monitor" loading="lazy"></div>
       <div class="pb"><h3>VHDL Lessons &amp; Concepts</h3><p>A structured collection of VHDL concepts, practical examples and exercises covering digital design fundamentals, with simulations using Xilinx Vivado.</p><div class="tags"><span>VHDL</span><span>Digital design</span><span>Vivado</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/VHDL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
 
-    <article class="pj reveal" data-c="hdl" style="--d:.16s"><div class="art"><img src="tcl.webp" alt="Terminal on a monitor in a teal-lit workspace" loading="lazy"></div>
+    <article class="pj reveal" data-c="hdl"><div class="art"><img src="tcl.webp" alt="Tcl scripting terminal and code editor on a desktop monitor" loading="lazy"></div>
       <div class="pb"><h3>Tcl Scripting &amp; Notes</h3><p>A collection of Tcl scripts and learning notes covering scripting fundamentals, task automation and tool configuration for electronic design automation workflows.</p><div class="tags"><span>Tcl</span><span>Automation</span><span>Scripting</span><span>EDA Tools</span></div><a class="go" href="https://github.com/mahmoud-elbadrawy/TCL" target="_blank" rel="noopener">View on GitHub<svg class="ic"><use href="#up"/></svg></a></div></article>
+
+    <aside class="project-note" aria-label="A note about my approach"><div><p>Built with curiosity and a passion for learning.</p><span>ALWAYS EXPLORING</span></div></aside>
   </div>
 </div></section>
 
@@ -655,11 +680,12 @@ addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=
 $('#burger').onclick=()=>$('#links').classList.toggle('open');
 lk.forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
 // project filter
-$$('#flt button').forEach(b=>b.onclick=()=>{$$('#flt button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
- $$('.pj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f))});
-// 3D tilt on project cards (mouse only)
-if(matchMedia('(hover:hover)').matches)$$('.pj').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transition='box-shadow .3s';c.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-6px)`});
- c.addEventListener('mouseleave',()=>{c.style.transition='';c.style.transform=''})});
+$('#flt button').forEach(b=>b.onclick=()=>{
+ $('#flt button').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
+ b.classList.add('on');b.setAttribute('aria-pressed','true');
+ $('.pj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f));
+ const note=$('.project-note');if(note)note.hidden=b.dataset.f!=='all';
+});
 // book questions: works without a mail client; optional direct send via Web3Forms
 (()=>{const TO='mahmoud@elbadrawy.de',KEY='60059188-b9b3-444b-917f-ad54491e612b' /* Web3Forms access key */,SUBJ='Question about your book: Unit Testing for Embedded Systems';
  const m=$('#bkModal'),show=id=>['bk1','bk2','bk3'].forEach(x=>$('#'+x).hidden=x!==id),
