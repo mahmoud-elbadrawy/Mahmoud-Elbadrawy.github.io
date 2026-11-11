@@ -470,7 +470,7 @@ footer{padding:34px 0;text-align:center;color:var(--mut);font-size:.88rem}
   <div class="about-layout">
     <div class="about-intro">
       <span class="section-index reveal"><i></i> ABOUT ME</span>
-      <h2 class="reveal">Building software close to the hardware.</h2>
+      <h2 class="reveal">Building software close to the <span>hardware.</span></h2>
       <p class="about-copy lead-copy reveal">I’m an embedded software engineer focused on making the layers closest to the hardware work beautifully.</p>
       <p class="about-copy reveal">From ARM Cortex-M firmware and low-level drivers to BSPs and configuration tools, I care about code that’s reliable, tested, and easy to maintain.</p>
     </div>
@@ -682,13 +682,22 @@ addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=
 // menu
 $('#burger').onclick=()=>$('#links').classList.toggle('open');
 lk.forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
-// project filter
-$('#flt button').forEach(b=>b.onclick=()=>{
- $('#flt button').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false')});
- b.classList.add('on');b.setAttribute('aria-pressed','true');
- $('.pj').forEach(p=>p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.c!==b.dataset.f));
- const note=$('.project-note');if(note)note.hidden=b.dataset.f!=='all';
-});
+// project filters
+const projectFilterButtons=$('#flt button');
+const projectCards=$('#projects .pj');
+const projectNote=$('#projects .project-note');
+projectFilterButtons.forEach(b=>b.addEventListener('click',()=>{
+ const category=b.dataset.f;
+ projectFilterButtons.forEach(x=>{
+  const active=x===b;
+  x.classList.toggle('on',active);
+  x.setAttribute('aria-pressed',String(active));
+ });
+ projectCards.forEach(card=>{
+  card.classList.toggle('hide',category!=='all'&&card.dataset.c!==category);
+ });
+ if(projectNote)projectNote.hidden=category!=='all';
+}));
 // book questions: works without a mail client; optional direct send via Web3Forms
 (()=>{const TO='mahmoud@elbadrawy.de',KEY='60059188-b9b3-444b-917f-ad54491e612b' /* Web3Forms access key */,SUBJ='Question about your book: Unit Testing for Embedded Systems';
  const m=$('#bkModal'),show=id=>['bk1','bk2','bk3'].forEach(x=>$('#'+x).hidden=x!==id),
